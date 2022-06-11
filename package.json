@@ -1,0 +1,11 @@
+{
+  "name": "mykicks",
+  "version": "1.0.0",
+  "description": "An E-commerce Website dedicated towards Sneakers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Balraj Gahlot",
+  "license": "ISC"
+}
