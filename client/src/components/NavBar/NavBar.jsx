@@ -7,52 +7,46 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 const NavBar = () => {
   return (
-    <>
-      <header>
-        <section>
-          <div id='navBar_container'>
-            <div id='navBar_siteName'>
-              My<b>Kicks</b>
-            </div>
+    <div id='navBar_container'>
+      <div id='navBar_siteName'>
+        My<b>Kicks</b>
+      </div>
 
-            <div id='navBar-collection'>
-              <div id='NewArrival'>
-                <NavLink to='/'> NEW ARRIVAL </NavLink>
-              </div>
-              <div id='Accessories'>
-                <NavLink to='/'> ACCESSORIES </NavLink>
-              </div>
-            </div>
+      <div id='navBar-collection'>
+        <div id='NewArrival'>
+          <NavLink to='/'> NEW ARRIVAL </NavLink>
+        </div>
+        <div id='Accessories'>
+          <NavLink to='/'> ACCESSORIES </NavLink>
+        </div>
+      </div>
 
-            <div className='navBar-search'>
-              <IconButton>
-                <SearchIcon />
-              </IconButton>
-              <input
-                type='text'
-                id='input'
-                name='searchBox'
-                placeholder='Search for NewArrival and Accessories'
-              />
-            </div>
+      <div className='navBar-search'>
+        <IconButton>
+          <SearchIcon />
+        </IconButton>
+        <input
+          type='text'
+          id='input'
+          name='searchBox'
+          placeholder='Search for NewArrival and Accessories'
+        />
+      </div>
 
-            <div id='navBar-usersection'>
-              <NavLink to='/'>
-                <IconButton>
-                  <ShoppingCartIcon />
-                  <div id='badge'>0</div>
-                </IconButton>
-              </NavLink>
-              <NavLink to='/'>
-                <IconButton>
-                  <AccountCircleIcon />
-                </IconButton>
-              </NavLink>
-            </div>
-          </div>
-        </section>
-      </header>
-    </>
+      <div id='navBar-usersection'>
+        <NavLink to='/'>
+          <IconButton>
+            <ShoppingCartIcon />
+            <div id='badge'>0</div>
+          </IconButton>
+        </NavLink>
+        <NavLink to='/'>
+          <IconButton>
+            <AccountCircleIcon />
+          </IconButton>
+        </NavLink>
+      </div>
+    </div>
   );
 };
 
