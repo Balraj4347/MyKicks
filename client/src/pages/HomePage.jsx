@@ -1,13 +1,25 @@
 import React from "react";
-import Footer from "../components/Footer/Footer";
-import NavBar from "../components/NavBar/NavBar";
 
 const HomePage = () => {
   return (
-    <>
-      <NavBar />
-      <Footer />
-    </>
+    <div style={{ minHeight: "60vh" }}>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+      <div style={{ height: "10vh" }}>123 Page</div>
+    </div>
   );
 };
 
