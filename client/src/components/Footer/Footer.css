@@ -16,6 +16,11 @@
   padding: var(--footer-padding);
   color: var(--text-color);
 }
+@media (max-width: 575px) {
+  .footer-container {
+    font-size: 12px;
+  }
+}
 .footer-container-row-1 {
   display: flex;
 
@@ -32,15 +37,19 @@
   position: relative;
   flex: 1;
   text-align: left;
-  padding: 2vmin 10vmin;
+  padding: 2vmin 5vmin;
 }
 .footer-row-1-section ul {
   list-style: none;
 }
-.footer-row-1-section #compname {
+#compname {
   font-weight: bolder;
   font-size: 30px;
 }
+#footer-slogan {
+  font-size: 20px;
+}
+
 .footer-row-1-section #needHelp,
 .footer-row-1-section #MessageUs {
   font-size: 20px;

@@ -17,7 +17,7 @@ const Footer = () => {
             <div className='footer-row-1-company-desc-content'>
               <ul>
                 <li>
-                  <span style={{ fontSize: "20px" }}>
+                  <span id='footer-slogan'>
                     Life isn't Perfect but your Sneaker can be
                   </span>
                 </li>
@@ -74,11 +74,17 @@ const Footer = () => {
             <p>
               <b>MyKicks</b> India Pvt. Ltd. © 2022 All Rights Reserved by
               Balraj Gahlot.
-              <span className='footer-row-2-icons'>
-                <IconButton id='footer-github'>
-                  <GitHubIcon />
-                </IconButton>
-              </span>
+              <a
+                href='https://github.com/Balraj4347'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <span className='footer-row-2-icons'>
+                  <IconButton id='footer-github'>
+                    <GitHubIcon />
+                  </IconButton>
+                </span>
+              </a>
             </p>
           </div>
         </div>
