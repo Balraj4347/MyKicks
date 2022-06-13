@@ -56,7 +56,7 @@
   color: white;
   margin: auto;
   padding: 2vmin;
-  width: 20em;
+  width: 50vw;
   font-size: 2vmax;
   border-radius: 50px;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -98,7 +98,6 @@
 }
 .hp-section2-image-text {
   background: transparent;
-
   color: white;
   padding: 2vmin;
   border-radius: 50px;

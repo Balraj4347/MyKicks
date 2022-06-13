@@ -127,12 +127,13 @@ body {
   .navBar-collection {
     flex-direction: column;
     position: fixed;
-    margin-top: 86px;
+    margin-top: 66px;
     width: 0;
     height: 100%;
     overflow: hidden;
     background-color: #2e2e2e;
     top: 0;
+    justify-content: space-evenly;
     padding: 0;
     right: 0;
     transition: 1s;
