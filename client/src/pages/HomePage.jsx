@@ -6,11 +6,11 @@ const HomePage = () => {
   return (
     <div className='homepage-container'>
       <section className='homepage-section-1'>
-        <video autoPlay loop muted>
+        <video autoPlay loop muted id='homepage-video'>
           <source src={bgVideo} type='video/mp4' />
         </video>
         <div className='hp-section1-text'>
-          <h3>MyKicks</h3>
+          <h2>MyKicks</h2>
           <p>Life isn't Perfect but your Sneaker can be</p>
         </div>
       </section>

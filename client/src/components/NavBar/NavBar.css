@@ -47,7 +47,7 @@ body {
 #navBar_siteName {
   font-size: 40px;
   padding: 0px 20px;
-  font-family: "Lato", sans-serif;
+  font-family: -webkit-body;
 }
 #navBar_siteName a {
   text-decoration: none;
