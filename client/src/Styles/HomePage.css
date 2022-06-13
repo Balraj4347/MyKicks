@@ -1,9 +1,18 @@
 .homepage-container {
-  border: 1px solid black;
   min-height: 50vh;
-  margin: 1em;
 }
 .aasdsada {
   border: 1px solid black;
   margin: 1em;
+}
+.homepage-section-1 {
+  width: 90vw;
+  height: 100%;
+}
+.homepage-section-1 video {
+  width: 110%;
+
+  max-height: 89vh;
+  z-index: -1;
+  position: relative;
 }

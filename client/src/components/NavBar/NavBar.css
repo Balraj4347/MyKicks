@@ -27,7 +27,7 @@ body {
   font-family: "Lato", sans-serif;
   justify-content: space-around;
   align-items: center;
-  padding: 20px 40px;
+  padding: 10px 40px;
   box-sizing: border-box;
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
 }
@@ -35,7 +35,6 @@ body {
 .navBar-collection {
   display: flex;
   align-items: center;
-  font-weight: bold;
   padding: 5px 20px;
   justify-content: space-around;
   width: 90%;
@@ -126,25 +125,19 @@ body {
   }
 
   .navBar-collection {
-    margin-top: 86px;
-    width: 40%;
-    min-width: fit-content;
-    display: none;
-    float: right;
-    top: 0;
-    right: 0;
-    position: absolute;
-    height: 0;
     flex-direction: column;
-    background: #2f2f2f;
-    z-index: 200;
-  }
-
-  .navBar-collection-active {
-    height: 50vh;
-    display: flex;
+    position: fixed;
+    margin-top: 86px;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #2e2e2e;
+    top: 0;
+    padding: 0;
+    right: 0;
     transition: 1s;
   }
+
   #navBar_container {
     justify-content: space-between;
   }
