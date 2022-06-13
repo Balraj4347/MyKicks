@@ -159,7 +159,7 @@ body {
 }
 @media (max-width: 1120px) {
   #searchBox {
-    width: 8em;
+    width: 12em;
   }
   .navBar-search {
     width: 10em;
@@ -170,7 +170,7 @@ body {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1120px) {
   .navBar-search {
     display: none;
   }

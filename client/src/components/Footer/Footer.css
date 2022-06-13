@@ -50,8 +50,7 @@
   font-size: 20px;
 }
 
-.footer-row-1-section #needHelp,
-.footer-row-1-section #MessageUs {
+.footer-row-1-section #footerHeading2 {
   font-size: 20px;
 }
 .footer-row-1-messageus-content {
@@ -89,13 +88,20 @@
   padding-top: 10px;
   display: inline-flex;
 }
-.footer-row-2-icons > #footer-github {
+#footer-github {
   color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 2px;
   border: 1px solid black;
   background-color: transparent;
 }
-.footer-row-2-icons > #footer-github:hover {
+#footer-icon:hover {
   transform: scale(1.2);
+}
+#footer-icon {
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: transparent;
 }

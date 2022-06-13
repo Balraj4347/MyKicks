@@ -1,6 +1,10 @@
 import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import "./Footer.css";
 import { IconButton } from "@mui/material";
 
@@ -30,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div className='footer-row-1-section'>
-            <span id='needHelp'>Need Help</span>
+            <span id='footerHeading2'>Need Help</span>
             <div className='footer-row-1-needhelp-content'>
               <ul>
                 <li>My Account</li>
@@ -39,9 +43,34 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+          <div className='footer-row-1-section'>
+            <span id='footerHeading2'>Contact US</span>
+            <div className='footer-row-1-needhelp-content'>
+              <ul>
+                <li>+91 9999999999</li>
+                <li>Delhi , India</li>
+                <li>
+                  <IconButton id='footer-icon'>
+                    <FacebookIcon />
+                  </IconButton>
+                  <IconButton id='footer-icon'>
+                    <InstagramIcon />
+                  </IconButton>
+                </li>
+                <li>
+                  <IconButton id='footer-icon'>
+                    <TwitterIcon />
+                  </IconButton>
+                  <IconButton id='footer-icon'>
+                    <LinkedInIcon />
+                  </IconButton>
+                </li>
+              </ul>
+            </div>
+          </div>
 
           <div className='footer-row-1-section'>
-            <span id='MessageUs'>Message Us </span>
+            <span id='footerHeading2'>Message Us </span>
             <div className='footer-row-1-messageus-content'>
               <form onSubmit={handleForm}>
                 <div className='footer-form'>
@@ -80,7 +109,7 @@ const Footer = () => {
                 rel='noreferrer'
               >
                 <span className='footer-row-2-icons'>
-                  <IconButton id='footer-github'>
+                  <IconButton id='footer-icon'>
                     <GitHubIcon />
                   </IconButton>
                 </span>
