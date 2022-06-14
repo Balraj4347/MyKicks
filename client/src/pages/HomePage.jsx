@@ -1,24 +1,18 @@
 import React from "react";
+import "../Styles/HomePage.css";
+
+// -----------------------------------
+import Section1 from "../components/HomePage_Sections/HP_Section1";
+import Section2 from "../components/HomePage_Sections/HP_Section2";
+import Section3 from "../components/HomePage_Sections/HP_Section3";
+// -----------------------------------
 
 const HomePage = () => {
   return (
-    <div style={{ minHeight: "60vh" }}>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
-      <div style={{ height: "10vh" }}>123 Page</div>
+    <div className='homepage-container'>
+      <Section1 />
+      <Section2 />
+      <Section3 />
     </div>
   );
 };

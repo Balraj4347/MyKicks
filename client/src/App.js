@@ -9,11 +9,12 @@ function App() {
     <div className='App'>
       <Router>
         <NavBar />
-
-        <Routes>
-          <Route exact path='/' element={<HomePage />} />
-          <Route exact path='/newarrival' element={<NewArrival />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route exact path='/' element={<HomePage />} />
+            <Route exact path='/newarrival' element={<NewArrival />} />
+          </Routes>
+        </main>
       </Router>
 
       <Footer />
