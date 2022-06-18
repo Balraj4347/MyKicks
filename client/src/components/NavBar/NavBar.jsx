@@ -9,11 +9,18 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import { useState } from "react";
 const NavBar = () => {
-  const [hamburger, setHamburger] = useState(true);
+  const [showNav, setshowNav] = useState(true);
 
-  const handleHamburger = () => {
-    setHamburger(!hamburger);
+  const handleshowNav = () => {
+    setshowNav(!showNav);
+
+    if (showNav) {
+      document.getElementById("navbar-side-bar").style.width = "300px";
+    } else {
+      document.getElementById("navbar-side-bar").style.width = "0";
+    }
   };
+
   return (
     <header id='navBar-header'>
       <div id='navBar_container'>
@@ -23,13 +30,7 @@ const NavBar = () => {
           </NavLink>
         </div>
 
-        <div
-          className={
-            hamburger
-              ? "navBar-collection navBar-collection-active"
-              : "navBar-collection  "
-          }
-        >
+        <div className='navBar-collection' id='navbar-side-bar'>
           <div className='navBar-navBtn' id='NewArrival'>
             <NavLink
               to='/newarrival'
@@ -88,13 +89,13 @@ const NavBar = () => {
           </div>
         </div>
         <div className='navBar-hamburger'>
-          {hamburger ? (
-            <IconButton onClick={handleHamburger}>
-              <MenuOpenIcon sx={{ color: "white" }} />
+          {showNav ? (
+            <IconButton onClick={handleshowNav}>
+              <MenuIcon sx={{ color: "white" }} />
             </IconButton>
           ) : (
-            <IconButton onClick={handleHamburger}>
-              <MenuIcon sx={{ color: "white" }} />
+            <IconButton onClick={handleshowNav}>
+              <MenuOpenIcon sx={{ color: "white" }} />
             </IconButton>
           )}
         </div>
