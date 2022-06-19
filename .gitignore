@@ -2,4 +2,6 @@
 /node_modules
 
 # local env files
-/server/config/config.env
+
+server/config/config.env
+*.env
