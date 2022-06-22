@@ -12,7 +12,7 @@ dotenv.config({
   path: "server/config/config.env",
 });
 //using morgan to get http logging in console for easy debug
-if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
+if (process.env.NODE_ENV === "DEVELOPMENT") app.use(morgan("dev"));
 
 // UncaughtException Error
 process.on("uncaughtException", (err) => {
