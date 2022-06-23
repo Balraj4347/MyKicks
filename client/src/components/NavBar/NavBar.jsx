@@ -13,12 +13,6 @@ const NavBar = () => {
 
   const handleshowNav = () => {
     setshowNav(!showNav);
-
-    if (showNav) {
-      document.getElementById("navbar-side-bar").style.width = "300px";
-    } else {
-      document.getElementById("navbar-side-bar").style.width = "0";
-    }
   };
 
   return (
@@ -30,7 +24,14 @@ const NavBar = () => {
           </NavLink>
         </div>
 
-        <div className='navBar-collection' id='navbar-side-bar'>
+        <div
+          className={
+            showNav
+              ? "navBar-collection"
+              : "navBar-collection navBar-collection-active"
+          }
+          id='navbar-side-bar'
+        >
           <div className='navBar-navBtn' id='NewArrival'>
             <NavLink
               to='/newarrival'

@@ -138,6 +138,9 @@ body {
     right: 0;
     transition: 1s;
   }
+  .navBar-collection-active {
+    width: 300px;
+  }
 
   #navBar_container {
     justify-content: space-between;
