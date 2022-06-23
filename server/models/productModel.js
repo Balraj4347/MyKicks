@@ -18,16 +18,8 @@ const productSchema = new mongoose.Schema({
   },
 
   brand: {
-    name: {
-      type: String,
-      required: true,
-    },
-    logo: {
-      url: {
-        type: String,
-        required: true,
-      },
-    },
+    type: String,
+    required: true,
   },
 
   images: [
@@ -54,6 +46,7 @@ const productSchema = new mongoose.Schema({
   ratings: {
     type: Number,
     default: 0,
+    max: 5,
   },
 
   createdAt: {
