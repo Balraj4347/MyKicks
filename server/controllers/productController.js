@@ -4,12 +4,12 @@ const errorHandler = require("../utils/errorHandler");
 
 //Get ALL Products
 getProducts = asyncErrorHandler(async (req, res, next) => {
-  const productCount = await Product.countDocuments();
+  const productsCount = await Product.countDocuments();
   const products = await Product.find();
 
   res.status(200).json({
     success: true,
-    productCount,
+    productsCount,
     products,
   });
 });

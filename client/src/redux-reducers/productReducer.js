@@ -3,7 +3,7 @@ import {
   ALL_PRODUCTS_SUCCESS,
   ALL_PRODUCTS_FAIL,
   CLEAR_ERRORS,
-} from "../constants/productConstants";
+} from "../redux-constants/productConstants";
 
 export const productsReducer = (
   state = { products: [] },
@@ -11,11 +11,15 @@ export const productsReducer = (
 ) => {
   switch (type) {
     case ALL_PRODUCTS_REQUEST:
+      return {
+        loading: true,
+        products: [],
+      };
     case ALL_PRODUCTS_SUCCESS:
       return {
         loading: false,
-        products: payload.products,
         productsCount: payload.productsCount,
+        products: payload.products,
       };
     case ALL_PRODUCTS_FAIL:
       return {

@@ -4,17 +4,17 @@ import {
   ALL_PRODUCTS_SUCCESS,
   ALL_PRODUCTS_FAIL,
   CLEAR_ERRORS,
-} from "../constants/productConstants";
+} from "../redux-constants/productConstants";
 
 //GETTING PRODUCTS
-export const getProducts = async (dispatch) => {
+export const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
     let url = "/api/getproducts";
 
-    const data = axios.get(url);
-    console.log(data);
+    const { data } = await axios.get(url);
+
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,
       payload: data,

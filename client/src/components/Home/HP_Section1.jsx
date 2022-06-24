@@ -1,5 +1,5 @@
 import React from "react";
-import bgVideo from "../Media/CLIP_MyKicks_homepage.mp4";
+import bgVideo from "../../assets/media/CLIP_MyKicks_homepage.mp4";
 const Section1 = () => {
   return (
     <section className='homepage-section-1'>
