@@ -30,6 +30,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      _id: false,
     },
   ],
 
@@ -41,28 +42,13 @@ const productSchema = new mongoose.Schema({
 
   gender: {
     type: String,
-    enum: ["Unisex", "Male", "Female"],
-    required: true,
+    enum: ["Men", "Women"],
   },
-
-  Acc_stock: {
+  stock: {
     type: Number,
-    min: 0,
+    required: true,
+    default: 1,
   },
-  shoeSize: [
-    {
-      size: {
-        type: Number,
-        max: 15,
-        min: 6,
-      },
-      stock: {
-        type: Number,
-        min: 0,
-      },
-    },
-  ],
-
   ratings: {
     type: Number,
     default: 0,
