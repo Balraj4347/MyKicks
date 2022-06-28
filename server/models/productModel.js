@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
+    uppercase: true,
     required: true,
     trim: true,
   },
@@ -19,6 +20,7 @@ const productSchema = new mongoose.Schema({
 
   brand: {
     type: String,
+    uppercase: true,
     required: true,
   },
 
@@ -33,15 +35,33 @@ const productSchema = new mongoose.Schema({
 
   category: {
     type: String,
+    enum: ["Footwear", "Accessories"],
     required: true,
   },
 
-  stock: {
-    type: Number,
+  gender: {
+    type: String,
+    enum: ["Unisex", "Male", "Female"],
     required: true,
-    maxlength: 2,
-    default: 1,
   },
+
+  Acc_stock: {
+    type: Number,
+    min: 0,
+  },
+  shoeSize: [
+    {
+      size: {
+        type: Number,
+        max: 15,
+        min: 6,
+      },
+      stock: {
+        type: Number,
+        min: 0,
+      },
+    },
+  ],
 
   ratings: {
     type: Number,
