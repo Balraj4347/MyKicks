@@ -1,16 +1,37 @@
 const Product = require("../models/productModel");
 const asyncErrorHandler = require("../middlewares/asyncErrorHandler");
-const errorHandler = require("../utils/errorHandler");
+const ErrorHandler = require("../utils/errorHandler");
+const FilterFeatures = require("../utils/filterfeatures");
 
 //Get ALL Products
-getProducts = asyncErrorHandler(async (req, res, next) => {
-  const productsCount = await Product.countDocuments();
-  const products = await Product.find();
+getAllProducts = asyncErrorHandler(async (req, res, next) => {
+  const productCount = await Product.countDocuments();
+
+  const filterFeature = new FilterFeatures(Product.find(), req.query).filter();
+  let products = await filterFeature.query;
+  let filterredProductCount = products.length;
+
+  // const products = await Product.find();
 
   res.status(200).json({
     success: true,
-    productsCount,
+    productCount,
+    filterredProductCount,
     products,
+  });
+});
+
+//Get Single Product Details
+getProductDetails = asyncErrorHandler(async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+
+  if (!product) {
+    return next(new ErrorHandler("Product Not Found", 404));
+  }
+
+  res.status(200).json({
+    success: true,
+    product,
   });
 });
 
@@ -24,20 +45,4 @@ createProduct = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
-// //Creating Product
-// const createProduct = asyncErrorHandler(async (req, res) => {
-//   const product = await Product.create(req.body);
-//   console.log(product);
-//   if (product)
-//     res.json({
-//       success: true,
-//       data: product,
-//     });
-//   else {
-//     res.json({
-//       success: false,
-//       message: " UnSuccessful",
-//     });
-//   }
-// });
-module.exports = { getProducts, createProduct };
+module.exports = { getAllProducts, createProduct, getProductDetails };

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
+    uppercase: true,
     required: true,
     trim: true,
   },
@@ -19,6 +20,7 @@ const productSchema = new mongoose.Schema({
 
   brand: {
     type: String,
+    uppercase: true,
     required: true,
   },
 
@@ -28,21 +30,25 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      _id: false,
     },
   ],
 
   category: {
     type: String,
-    required: [true, "Please enter product category"],
+    enum: ["Footwear", "Accessories"],
+    required: true,
   },
 
+  gender: {
+    type: String,
+    enum: ["Men", "Women"],
+  },
   stock: {
     type: Number,
     required: true,
-    maxlength: 2,
     default: 1,
   },
-
   ratings: {
     type: Number,
     default: 0,
