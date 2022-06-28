@@ -1,4 +1,4 @@
-const Order = require("../models/orderSchema");
+const Order = require("../models/orderModel");
 
 const getOrderDetails = async (req, res, next) => {
   try {
