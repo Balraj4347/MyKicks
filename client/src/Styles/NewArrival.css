@@ -20,7 +20,7 @@
 }
 .products-filter-header {
   padding: 10px 20px;
-  font-size: 30px;
+  font-size: 20px;
   font-family: monospace;
   font-weight: 400;
 }
@@ -34,7 +34,7 @@
 .products-filter-choice-section .formBox {
   padding: 10px;
   max-height: 200px;
-  overflow-y: scroll;
+  overflow-y: auto;
   word-wrap: break-word;
 }
 .products-filter-choice-section p {
@@ -44,6 +44,13 @@
 .products-filter-choice-section #filterLabel {
   font-size: 20px;
   font-variant-caps: all-small-caps;
-
   font-family: serif;
+}
+.products-filter-choice-section .formBox::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  background-color: #6a686874;
+}
+.products-filter-choice-section .formBox::-webkit-scrollbar-thumb {
+  background-color: black;
 }
