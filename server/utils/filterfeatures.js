@@ -10,9 +10,9 @@ class FilterFeatures {
     // fields to remove
     const removeFields = ["keyword", "page", "limit"];
 
-    console.log(queryCopy);
+    // console.log(queryCopy);
     removeFields.forEach((key) => delete queryCopy[key]);
-    console.log(queryCopy);
+    // console.log(queryCopy);
 
     // price filter
     let queryString = JSON.stringify(queryCopy);
@@ -21,7 +21,7 @@ class FilterFeatures {
       (key) => `$${key}`
     );
 
-    console.log(JSON.parse(queryString));
+    // console.log(JSON.parse(queryString));
 
     this.query = this.query.find(JSON.parse(queryString));
     return this;

@@ -1,0 +1,49 @@
+/* -------  Products CSS  --------- */
+.products-container {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.products-filter-sidebar {
+  width: 250px;
+  border: 1px solid;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: start;
+}
+.products-main-content {
+  border: 1px solid;
+  min-height: 90vh;
+  width: 75%;
+}
+.products-filter-header {
+  padding: 10px 20px;
+  font-size: 30px;
+  font-family: monospace;
+  font-weight: 400;
+}
+.products-filter-choice-section {
+  padding: 5px 10px;
+  margin: 5px;
+
+  color: #4f4f4f;
+}
+
+.products-filter-choice-section .formBox {
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+.products-filter-choice-section p {
+  font-family: initial;
+  font-size: 20px;
+}
+.products-filter-choice-section #filterLabel {
+  font-size: 20px;
+  font-variant-caps: all-small-caps;
+
+  font-family: serif;
+}

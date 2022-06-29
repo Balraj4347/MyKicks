@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({ brand, description, name, images, price }) => {
+const ProductCard = ({ brand, description, name, images, price }) => {
   return (
     <div>
       <p>{brand}</p>
@@ -12,4 +12,4 @@ const Product = ({ brand, description, name, images, price }) => {
   );
 };
 
-export default Product;
+export default ProductCard;

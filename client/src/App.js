@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
       <Router>
         <NavBar />
-        <main>
+        <main className='app_main_div'>
           <Routes>
             <Route exact path='/' element={<HomePage />} />
             <Route exact path='/newarrival' element={<NewArrival />} />

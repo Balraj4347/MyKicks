@@ -6,26 +6,37 @@ import {
   CLEAR_ERRORS,
 } from "../redux-constants/productConstants";
 
-//GETTING PRODUCTS
-export const getProducts = () => async (dispatch) => {
-  try {
-    dispatch({ type: ALL_PRODUCTS_REQUEST });
+//GETTING ALL PRODUCTS -- FILTER
+export const getProducts =
+  (keyword = "", gender, price = [0, 200000], ratings = 0, brand, category) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: ALL_PRODUCTS_REQUEST });
 
-    let url = "/api/getproducts";
+      let url = `/api/products?keyword=${keyword}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
+      if (category) {
+        url = url + `&category=${category}`;
+      }
+      if (gender) {
+        url = url + `&gender=${gender}`;
+      }
+      if (brand) {
+        url = url + `&brand=${brand}`;
+      }
 
-    const { data } = await axios.get(url);
+      const { data } = await axios.get(url);
 
-    dispatch({
-      type: ALL_PRODUCTS_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ALL_PRODUCTS_FAIL,
-      payload: error.response.data.message,
-    });
-  }
-};
+      dispatch({
+        type: ALL_PRODUCTS_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: ALL_PRODUCTS_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
 
 // TO CLEAR ALL ERRORS
 export const clearErrors = () => (dispatch) => {

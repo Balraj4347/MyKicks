@@ -1,33 +1,90 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getProducts } from "../../redux-actions/productAction";
-import Product from "./Product";
+import { useEffect, useState } from "react";
+import { getProducts, clearErrors } from "../../redux-actions/productAction";
+import ProductCard from "./ProductCard";
+import { useLocation, useParams } from "react-router-dom";
+
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+
+const genders = ["Unisex", "Male", "Female"];
+
+const categories = ["Footwear", "Accessories"];
 
 const Products = () => {
   const dispatch = useDispatch();
-  const { loading, productsCount, products, error } = useSelector(
-    (state) => state.products
-  );
+  const location = useLocation();
+  const params = useParams();
+  const keyword = params.keyword;
+
+  const [price, setPrice] = useState([0, 30000]);
+  const [category, setCategory] = useState("");
+  const [gender, setGender] = useState("");
+  const [ratings, setRatings] = useState(0);
+
+  const clearFilters = () => {
+    setPrice([0, 30000]);
+    setCategory("");
+    setGender("");
+    setRatings(0);
+  };
+
+  const { loading, productsCount, filteredProductCount, products, error } =
+    useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getProducts());
+    if (error) {
+      dispatch(clearErrors());
+    }
+    dispatch(getProducts(keyword, category, price, ratings));
   }, [dispatch]);
-  console.log(loading, productsCount, products, error);
+  // console.log(loading, productsCount, products, error);
   return (
-    <div>
-      Products
-      {!loading &&
-        products.map((product) => {
-          console.log(product);
-          return (
-            <>
-              <hr />
-              <Product {...product} key={product._id} />
-            </>
-          );
-        })}
-    </div>
+    <>
+      <div className='products-container'>
+        <div className='products-filter-sidebar'>
+          <div className='products-filter-header'>
+            <p>FILTER</p>
+          </div>
+          <div className='products-filter-choice-section'>
+            <p>Filter By Gender</p>
+            <div className='formBox'>
+              <FormControl>
+                <RadioGroup
+                  aria-labelledby='gender-radio-buttons-group'
+                  onChange={(e) => {
+                    setGender(e.target.value);
+                    console.log(gender);
+                  }}
+                  name='category-radio-buttons'
+                  value={gender}
+                >
+                  {genders.map((el, i) => (
+                    <FormControlLabel
+                      key={i}
+                      value={el === "Unisex" ? "" : el}
+                      control={<Radio size='small' />}
+                      label={
+                        <span id='filterLabel' key={i}>
+                          {el}
+                        </span>
+                      }
+                    />
+                  ))}
+                </RadioGroup>
+              </FormControl>
+            </div>
+          </div>
+        </div>
+        <div className='products-main-content'>
+          <section className='products-sort-dropdown'></section>
+          <section className='products-product-list'></section>
+        </div>
+      </div>
+    </>
   );
 };
 
