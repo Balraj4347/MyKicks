@@ -9,6 +9,9 @@ import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import Slider from "@mui/material/Slider";
+import { Button } from "@mui/material";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -30,6 +33,14 @@ const Products = () => {
     setRatings(0);
   };
 
+  const applyFilter = () => {
+    dispatch(getProducts(keyword, gender, price, ratings, brand, category));
+  };
+
+  const priceHandler = (e, newPrice) => {
+    setPrice(newPrice);
+  };
+
   const { loading, productsCount, filteredProductCount, products, error } =
     useSelector((state) => state.products);
 
@@ -37,9 +48,9 @@ const Products = () => {
     if (error) {
       dispatch(clearErrors());
     }
-    dispatch(getProducts(keyword, category, price, ratings));
-  }, [dispatch]);
-  // console.log(loading, productsCount, products, error);
+    dispatch(getProducts(keyword, gender, price, ratings, brand, category));
+  }, [dispatch, error]);
+
   return (
     <>
       <div className='products-container'>
@@ -137,6 +148,55 @@ const Products = () => {
             </div>
           </div>
           {/* Brand Filter Section */}
+          {/* Price Slider Filter */}
+          <div className='products-filter-choice-section'>
+            <p>Filter By Price</p>
+            <div className='formBox'>
+              <div className='slider-value-display'>
+                <span className='text-box'>₹{price[0].toLocaleString()}</span>
+                <span style={{ padding: "0px 10px" }}>to</span>
+                <span className='text-box'>₹{price[1].toLocaleString()}</span>
+              </div>
+              <div className='form-slider-box'>
+                <Slider
+                  value={price}
+                  sx={{
+                    color: "black",
+                  }}
+                  onChange={priceHandler}
+                  getAriaLabel={() => "Price range slider"}
+                  min={0}
+                  max={30000}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Price Slider Filter */}
+          {/* Apply Filter Button */}
+          <div className='filter-apply-btn'>
+            <Button
+              variant='filled'
+              size='small'
+              endIcon={<FilterAltIcon />}
+              sx={{
+                color: "white",
+                backgroundColor: "black",
+                "&:hover": {
+                  color: "white",
+                  backgroundColor: "#2b2b2bd4",
+                },
+                "&:active": {
+                  backgroundColor: "gray",
+                  color: "black",
+                },
+              }}
+              onClick={applyFilter}
+            >
+              Apply
+            </Button>
+          </div>
+          {/* Apply Filter Button */}
         </div>
         <div className='products-main-content'>
           <section className='products-sort-dropdown'></section>
@@ -147,7 +207,7 @@ const Products = () => {
   );
 };
 
-const genders = ["Unisex", "Male", "Female"];
+const genders = ["Unisex", "Men", "Women"];
 const categories = ["Footwear", "Accessories"];
 const brands = [
   "Adidas",

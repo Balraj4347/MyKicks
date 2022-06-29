@@ -8,11 +8,11 @@ import {
 
 //GETTING ALL PRODUCTS -- FILTER
 export const getProducts =
-  (keyword = "", gender, price = [0, 200000], ratings = 0, brand, category) =>
+  (keyword = "", gender, price = [0, 30000], ratings = 0, brand, category) =>
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCTS_REQUEST });
-
+      console.log(keyword, category, gender, price, brand, ratings);
       let url = `/api/products?keyword=${keyword}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
       if (category) {
         url = url + `&category=${category}`;
@@ -25,6 +25,7 @@ export const getProducts =
       }
 
       const { data } = await axios.get(url);
+      console.log(data);
 
       dispatch({
         type: ALL_PRODUCTS_SUCCESS,

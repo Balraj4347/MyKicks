@@ -4,20 +4,18 @@
   gap: 10px;
   align-items: flex-start;
 }
+
+/* ------- ------   products side bar ------- ------  */
 .products-filter-sidebar {
   width: 250px;
-  border: 1px solid;
+
   min-height: 90vh;
   display: flex;
   flex-direction: column;
   gap: 1px;
   text-align: start;
 }
-.products-main-content {
-  border: 1px solid;
-  min-height: 90vh;
-  width: 75%;
-}
+
 .products-filter-header {
   padding: 10px 20px;
   font-size: 20px;
@@ -37,6 +35,19 @@
   overflow-y: auto;
   word-wrap: break-word;
 }
+.products-filter-choice-section .formBox .form-slider-box {
+  margin: 0px 20px;
+}
+.products-filter-choice-section .formBox .slider-value-display {
+  display: flex;
+  justify-content: center;
+}
+.products-filter-choice-section .formBox .slider-value-display .text-box {
+  padding: 3px 10px;
+  border: 2px solid;
+  width: 100%;
+}
+
 .products-filter-choice-section p {
   font-family: initial;
   font-size: 20px;
@@ -53,4 +64,17 @@
 }
 .products-filter-choice-section .formBox::-webkit-scrollbar-thumb {
   background-color: black;
+}
+
+.products-filter-sidebar .filter-apply-btn {
+  align-self: flex-end;
+  padding: 0px 30px;
+  margin: -15px 0px 0px 0px;
+}
+/* ------- ------   products side bar ------- ------  */
+
+.products-main-content {
+  border: 1px solid;
+  min-height: 90vh;
+  width: 75%;
 }
