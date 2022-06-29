@@ -7,7 +7,7 @@
 
 /* ------- ------   products side bar ------- ------  */
 .products-filter-sidebar {
-  width: 250px;
+  width: 200px;
 
   min-height: 90vh;
   display: flex;
@@ -53,7 +53,7 @@
   font-size: 20px;
 }
 .products-filter-choice-section #filterLabel {
-  font-size: 20px;
+  font-size: 15px;
   font-variant-caps: all-small-caps;
   font-family: serif;
 }
@@ -73,8 +73,12 @@
 }
 /* ------- ------   products side bar ------- ------  */
 
+/* ------- ------   products main product section ------- ------  */
+
 .products-main-content {
   border: 1px solid;
   min-height: 90vh;
-  width: 75%;
+  width: 100%;
 }
+
+/* ------- ------   products main product section ------- ------  */

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getProducts, clearErrors } from "../../redux-actions/productAction";
 import ProductCard from "./ProductCard";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -15,7 +15,6 @@ import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 const Products = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
   const params = useParams();
   const keyword = params.keyword;
 
@@ -31,6 +30,8 @@ const Products = () => {
     setGender("");
     setBrand("");
     setRatings(0);
+
+    dispatch(getProducts());
   };
 
   const applyFilter = () => {
@@ -48,12 +49,13 @@ const Products = () => {
     if (error) {
       dispatch(clearErrors());
     }
-    dispatch(getProducts(keyword, gender, price, ratings, brand, category));
+    dispatch(getProducts());
   }, [dispatch, error]);
 
   return (
     <>
       <div className='products-container'>
+        {/* Side Filter Bar */}
         <div className='products-filter-sidebar'>
           <div className='products-filter-header'>
             <p>FILTER</p>
@@ -197,11 +199,47 @@ const Products = () => {
             </Button>
           </div>
           {/* Apply Filter Button */}
+          {/* resest Filter Button */}
+          <div>
+            <Button size='small' onClick={clearFilters} disableRipple>
+              Reset Filters
+            </Button>
+          </div>
+          {/* resest Filter Button */}
         </div>
-        <div className='products-main-content'>
-          <section className='products-sort-dropdown'></section>
-          <section className='products-product-list'></section>
+        {/* Side Filter Bar */}
+        {/* main products cards */}
+        <div className='products-main-content '>
+          {!loading && products.length === 0 && (
+            <div style={{ margin: "10vh 0px" }}>
+              <img
+                draggable='false'
+                src='https://static.thenounproject.com/png/1400397-200.png'
+                alt='not found icon'
+              />
+              <h3>Sorry, no Product found! Matching Your Filter Preferences</h3>
+              <p className='text-xl text-center text-primary-grey'>
+                Try Other Filter Preferences
+              </p>
+            </div>
+          )}
+
+          {loading ? (
+            <span>Loading</span>
+          ) : (
+            <div className='products-main-container '>
+              <div className='products-card-container '>
+                {products?.map((product) => (
+                  <ProductCard {...product} key={product._id} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* <section className='products-sort-dropdown'></section>
+          <section className='products-product-list'></section> */}
         </div>
+        {/* main products cards */}
       </div>
     </>
   );
