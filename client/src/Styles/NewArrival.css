@@ -76,9 +76,89 @@
 /* ------- ------   products main product section ------- ------  */
 
 .products-main-content {
-  border: 1px solid;
   min-height: 90vh;
   width: 100%;
 }
+.products-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-left: 25px;
+}
 
-/* ------- ------   products main product section ------- ------  */
+/* ------- ------   product card section ------- ------  */
+
+.product-card-container {
+  width: 30%;
+  margin: 10px;
+  min-width: 215px;
+  position: relative;
+  padding: 0.2em;
+  list-style: none;
+}
+
+.product-card-container a {
+  text-decoration: none;
+}
+.product-card-container .image-container > img {
+  width: 100%;
+  padding: 0.2em;
+}
+
+.product-card-desc {
+  text-align: left;
+  overflow-wrap: break-word;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  padding: 2px 1em;
+}
+
+.product-card-desc .brandName-container {
+  font-size: 20px;
+
+  font-family: emoji;
+}
+.product-card-desc .productName-container {
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+}
+.product-card-desc .price-rating-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px;
+  font-size: 20px;
+  font-family: math;
+  font-family: math;
+  color: #4f4f4f;
+}
+.product-card-container .add-cart-icon {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+}
+/* ------------ media query ------------ */
+@media only screen and (max-width: 960px) {
+  .products-filter-sidebar {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .product-card-container {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .product-card-container {
+    width: 90%;
+  }
+}
+/* @media only screen and (max-width: 545px) {
+  .product-card-container {
+    width: 90%;
+    margin: 10px;
+  }
+} */

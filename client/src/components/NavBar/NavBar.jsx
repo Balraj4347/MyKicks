@@ -8,8 +8,12 @@ import { IconButton } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 const NavBar = () => {
   const [showNav, setshowNav] = useState(true);
+
+  const { cartItems } = useSelector((state) => state.cart);
 
   const handleshowNav = () => {
     setshowNav(!showNav);
@@ -79,7 +83,7 @@ const NavBar = () => {
             <NavLink to='/'>
               <IconButton sx={{ color: "black" }}>
                 <ShoppingCartIcon />
-                <div id='badge'>0</div>
+                <div id='badge'>{cartItems.length}</div>
               </IconButton>
             </NavLink>
             <NavLink to='/'>

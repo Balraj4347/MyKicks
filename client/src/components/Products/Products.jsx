@@ -228,7 +228,8 @@ const Products = () => {
             <span>Loading</span>
           ) : (
             <div className='products-main-container '>
-              <div className='products-card-container '>
+              <div className='products-cards-wrapper '>
+                {console.log(products)}
                 {products?.map((product) => (
                   <ProductCard {...product} key={product._id} />
                 ))}
@@ -259,7 +260,7 @@ const brands = [
   "Puma",
   "Reebok",
   "Sneaker Freaker",
-  "Sneaker Lab",
+  "Sneaker Labs",
   "Superkicks",
   "Vans",
   "Ylati",
