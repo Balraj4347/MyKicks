@@ -54,7 +54,7 @@ const NavBar = () => {
 
           <div className='navBar-navBtn' id='Accessories'>
             <NavLink
-              to='/accessories'
+              to='accessories'
               style={({ isActive }) =>
                 isActive
                   ? {

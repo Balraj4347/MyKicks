@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getProducts, clearErrors } from "../../redux-actions/productAction";
 import ProductCard from "./ProductCard";
 import { useParams } from "react-router-dom";
-
+// import { useLocation } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
@@ -41,9 +41,8 @@ const Products = () => {
   const priceHandler = (e, newPrice) => {
     setPrice(newPrice);
   };
-
-  const { loading, productsCount, filteredProductCount, products, error } =
-    useSelector((state) => state.products);
+  //loading, productsCount, filteredProductCount, products, error
+  const { loading, products, error } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {
@@ -229,7 +228,6 @@ const Products = () => {
           ) : (
             <div className='products-main-container '>
               <div className='products-cards-wrapper '>
-                {console.log(products)}
                 {products?.map((product) => (
                   <ProductCard {...product} key={product._id} />
                 ))}
