@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const NavBar = () => {
-  const [showNav, setshowNav] = useState(true);
+  const [showNav, setshowNav] = useState(false);
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -31,8 +31,8 @@ const NavBar = () => {
         <div
           className={
             showNav
-              ? "navBar-collection"
-              : "navBar-collection navBar-collection-active"
+              ? "navBar-collection navBar-collection-active"
+              : "navBar-collection"
           }
           id='navbar-side-bar'
         >
@@ -78,7 +78,14 @@ const NavBar = () => {
               placeholder='Search for NewArrival and Accessories'
             />
           </div>
-
+        </div>
+        <div
+          style={{
+            display: "flex",
+            width: "160px",
+            justifyContent: "space-around",
+          }}
+        >
           <div id='navBar-usersection'>
             <NavLink to='/'>
               <IconButton sx={{ color: "black" }}>
@@ -92,17 +99,17 @@ const NavBar = () => {
               </IconButton>
             </NavLink>
           </div>
-        </div>
-        <div className='navBar-hamburger'>
-          {showNav ? (
-            <IconButton onClick={handleshowNav}>
-              <MenuIcon sx={{ color: "white" }} />
-            </IconButton>
-          ) : (
-            <IconButton onClick={handleshowNav}>
-              <MenuOpenIcon sx={{ color: "white" }} />
-            </IconButton>
-          )}
+          <div className='navBar-hamburger'>
+            {showNav ? (
+              <IconButton onClick={handleshowNav}>
+                <MenuOpenIcon sx={{ color: "white" }} />
+              </IconButton>
+            ) : (
+              <IconButton onClick={handleshowNav}>
+                <MenuIcon sx={{ color: "white" }} />
+              </IconButton>
+            )}
+          </div>
         </div>
       </div>
     </header>
