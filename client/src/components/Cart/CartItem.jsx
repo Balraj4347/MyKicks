@@ -38,7 +38,7 @@ const CartItem = ({
     <div className='product-cartCard-wrapper'>
       <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
         <div className='remove-btn'>
-          <button onClick={removeCartItem}> X </button>
+          <button onClick={() => removeCartItem(productId)}> X </button>
         </div>
         <Link to={`product/${productId}`}>
           <div className='product-image'>
