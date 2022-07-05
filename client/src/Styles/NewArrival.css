@@ -7,7 +7,7 @@
 
 /* ------- ------   products side bar ------- ------  */
 .products-filter-sidebar {
-  width: 200px;
+  width: 250px;
 
   min-height: 90vh;
   display: flex;
@@ -18,7 +18,7 @@
 
 .products-filter-header {
   padding: 10px 20px;
-  font-size: 20px;
+  font-size: 30px;
   font-family: monospace;
   font-weight: 400;
 }
@@ -50,10 +50,10 @@
 
 .products-filter-choice-section p {
   font-family: initial;
-  font-size: 20px;
+  font-size: 25px;
 }
 .products-filter-choice-section #filterLabel {
-  font-size: 15px;
+  font-size: 20px;
   font-variant-caps: all-small-caps;
   font-family: serif;
 }

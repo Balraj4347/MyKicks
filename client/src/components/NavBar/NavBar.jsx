@@ -87,7 +87,7 @@ const NavBar = () => {
           }}
         >
           <div id='navBar-usersection'>
-            <NavLink to='/'>
+            <NavLink to='/cart'>
               <IconButton sx={{ color: "black" }}>
                 <ShoppingCartIcon />
                 <div id='badge'>{cartItems.length}</div>

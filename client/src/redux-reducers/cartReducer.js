@@ -13,14 +13,14 @@ export const cartReducer = (
     case ADD_TO_CART:
       const item = payload;
       const isItemExist = state.cartItems.find(
-        (el) => el.product === item.product
+        (el) => el.productId === item.productId
       );
 
       if (isItemExist) {
         return {
           ...state,
           cartItems: state.cartItems.map((el) =>
-            el.product === isItemExist.product ? item : el
+            el.productId === isItemExist.productId ? item : el
           ),
         };
       } else {
@@ -32,7 +32,7 @@ export const cartReducer = (
     case REMOVE_FROM_CART:
       return {
         ...state,
-        cartItems: state.cartItems.filter((el) => el.product !== payload),
+        cartItems: state.cartItems.filter((el) => el.productId !== payload),
       };
     case EMPTY_CART:
       return {

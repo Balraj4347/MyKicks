@@ -24,7 +24,7 @@ const ProductCard = ({
   const dispatch = useDispatch();
 
   const { cartItems } = useSelector((state) => state.cart);
-  const itemInCart = cartItems.some((i) => i.product === _id);
+  const itemInCart = cartItems.some((i) => i.productId === _id);
 
   const addToCartHandler = () => {
     dispatch(addItemsToCart(_id));
