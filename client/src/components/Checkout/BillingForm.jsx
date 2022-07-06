@@ -19,7 +19,11 @@ const BillingForm = (billingDetails) => {
   const shippingSubmit = (e) => {
     e.preventDefault();
 
-    if (phoneNo.length < 10 || phoneNo.length > 10) {
+    if (
+      phoneNo.length < 10 ||
+      phoneNo.length > 10 ||
+      !phoneNo.match(/^\d{10}$/)
+    ) {
       alert("invalid phone number");
       return;
     }
