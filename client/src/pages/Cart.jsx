@@ -1,12 +1,16 @@
 import "../Styles/Cart.css";
 import { useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 import CartList from "../components/Cart/CartList";
 import EmptyCart from "../components/Cart/EmptyCart";
 import PriceSideBar from "../components/Cart/PriceSideBar";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
+  const navigate = useNavigate();
+  const proceedCheckoutHandler = () => {
+    navigate("/checkout"); // check for login first
+  };
 
   return (
     <div className='cart-wrapper'>
@@ -15,7 +19,14 @@ const Cart = () => {
       {cartItems && cartItems.length > 0 && (
         <div className='cart-container'>
           <CartList cartItems={cartItems} />
-          <PriceSideBar cartItems={cartItems} />
+          <div className='cart-items-price-list'>
+            <PriceSideBar cartItems={cartItems} />
+            <div className='proceed-Checkout-button'>
+              <button onClick={proceedCheckoutHandler}>
+                PROCEED TO CHECKOUT
+              </button>
+            </div>
+          </div>
         </div>
       )}
 

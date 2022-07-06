@@ -2,11 +2,11 @@ import {
   ADD_TO_CART,
   EMPTY_CART,
   REMOVE_FROM_CART,
-  SAVE_SHIPPING_INFO,
+  SAVE_BILLING_DETAILS,
 } from "../redux-constants/cartConstants";
 
 export const cartReducer = (
-  state = { cartItems: [], shippingInfo: {} },
+  state = { cartItems: [], billingDetails: {} },
   { type, payload }
 ) => {
   switch (type) {
@@ -39,10 +39,10 @@ export const cartReducer = (
         ...state,
         cartItems: [],
       };
-    case SAVE_SHIPPING_INFO:
+    case SAVE_BILLING_DETAILS:
       return {
         ...state,
-        shippingInfo: payload,
+        billingDetails: payload,
       };
     default:
       return state;

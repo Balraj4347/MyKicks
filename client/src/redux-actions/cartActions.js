@@ -3,7 +3,7 @@ import {
   ADD_TO_CART,
   EMPTY_CART,
   REMOVE_FROM_CART,
-  SAVE_SHIPPING_INFO,
+  SAVE_BILLING_DETAILS,
 } from "../redux-constants/cartConstants";
 
 // add to cart
@@ -49,11 +49,11 @@ export const emptyCart = () => async (dispatch, getState) => {
 };
 
 // save shipping info
-export const saveShippingInfo = (data) => async (dispatch) => {
+export const saveBillingDetails = (data) => async (dispatch) => {
   dispatch({
-    type: SAVE_SHIPPING_INFO,
+    type: SAVE_BILLING_DETAILS,
     payload: data,
   });
 
-  localStorage.setItem("shippingInfo", JSON.stringify(data));
+  localStorage.setItem("billingDetails", JSON.stringify(data));
 };

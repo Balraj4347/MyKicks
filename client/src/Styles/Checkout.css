@@ -1,0 +1,77 @@
+.checkout-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.checkout-wrapper .billing-details {
+  width: 66%;
+  height: 80vh;
+}
+.checkout-wrapper .billing-details .header {
+  font-size: 40px;
+  margin: 10px 5px;
+  text-align: start;
+  font-family: serif;
+  font-weight: bolder;
+}
+.checkout-wrapper .billing-details .billing-form {
+  padding: 20px;
+}
+/* ------- billing form  ----- */
+.billing-details .billing-form .input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.billing-details .billing-form .input-field label {
+  font-size: 20px;
+}
+.billing-form .input-field input {
+  width: 100%;
+  background-color: rgba(241, 241, 241, 0.572);
+  border: none;
+  max-width: 1000px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  margin: 10px;
+}
+.billing-form .input-field select {
+  width: 50%;
+  background-color: rgba(241, 241, 241, 0.572);
+  border: none;
+  max-width: 1000px;
+  padding: 5px;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  margin: 10px;
+}
+/* ------order-table-checkout----- */
+.checkout-wrapper .order-table-checkout {
+  width: 43%;
+  height: 80vh;
+  text-align: start;
+  overflow-y: scroll;
+}
+.checkout-wrapper .order-table-checkout .yourOrder {
+  font-size: 40px;
+  margin: 10px 0px;
+  text-align: start;
+  font-family: serif;
+  font-weight: bolder;
+}
+
+/* ------Media query---------- */
+@media only screen and (max-width: 1200px) {
+  .checkout-wrapper {
+    flex-direction: column;
+  }
+  .checkout-wrapper .billing-details {
+    width: 100%;
+    min-height: 100px;
+  }
+  .checkout-wrapper .order-table-checkout {
+    width: 100%;
+    min-height: 100px;
+  }
+}
