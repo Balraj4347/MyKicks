@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { isAuthenticatedUser, authorizeRoles } = require("../middlewares/auth");
 
 const {
   getAllProducts,
