@@ -3,9 +3,9 @@ const asyncErrorHandler = require("../middlewares/asyncErrorHandler");
 const ErrorHandler = require("../utils/errorHandler");
 const FilterFeatures = require("../utils/filterfeatures");
 
-//Get ALL Products
-getAllProducts = asyncErrorHandler(async (req, res, next) => {
-  const productsCount = await Product.countDocuments();
+//Get ALL Products with Filter
+exports.getAllProducts = asyncErrorHandler(async (req, res, next) => {
+  const productCount = await Product.countDocuments();
 
   const filterFeature = new FilterFeatures(Product.find(), req.query).filter();
   let products = await filterFeature.query;
@@ -22,7 +22,7 @@ getAllProducts = asyncErrorHandler(async (req, res, next) => {
 });
 
 //Get Single Product Details
-getProductDetails = asyncErrorHandler(async (req, res, next) => {
+exports.getProductDetails = asyncErrorHandler(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
@@ -35,8 +35,10 @@ getProductDetails = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
+// ** ------  ADMIN controllers ------ **
+
 //Create Product
-createProduct = asyncErrorHandler(async (req, res, next) => {
+exports.createProduct = asyncErrorHandler(async (req, res, next) => {
   const product = await Product.create(req.body);
   console.log(product);
   res.status(201).json({
@@ -45,4 +47,43 @@ createProduct = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
-module.exports = { getAllProducts, createProduct, getProductDetails };
+exports.getAdminProducts = asyncErrorHandler(async (req, res, next) => {
+  const products = await Product.find();
+  const productCount = await Product.countDocuments();
+  res.status(200).json({
+    success: true,
+    products,
+    productCount,
+  });
+});
+
+//update product
+exports.updateProduct = asyncErrorHandler(async (req, res, next) => {
+  // let product = await Product.findById(req.params.id);
+
+  product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+    useFindAndModify: false,
+  });
+
+  res.status(201).json({
+    success: true,
+    product,
+  });
+});
+
+//delete product
+exports.deleteProduct = asyncErrorHandler(async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+
+  if (!product) {
+    return next(new ErrorHandler("Product Not Found", 404));
+  }
+
+  await product.remove();
+
+  res.status(201).json({
+    success: true,
+  });
+});
