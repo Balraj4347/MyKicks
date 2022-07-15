@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import NewArrival from "./pages/NewArrival";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Product from "./pages/Product";
 function App() {
   return (
     <div className='App'>
@@ -15,6 +16,8 @@ function App() {
           <Routes>
             <Route exact path='/' element={<HomePage />} />
             <Route exact path='/newarrival' element={<NewArrival />} />
+            <Route exact path='/product/:id' element={<Product />} />
+
             <Route exact path='/cart' element={<Cart />} />
             <Route exact path='/checkout' element={<Checkout />} />
           </Routes>
