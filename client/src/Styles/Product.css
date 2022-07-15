@@ -63,12 +63,12 @@
   color: gray;
 }
 .product-text-wrapper .productname {
-  font-size: 40px;
+  font-size: 5vmin;
   font-family: serif;
 }
 .product-text-wrapper .price {
   font-family: math;
-  font-size: 30px;
+  font-size: 4vmin;
   padding: 10px 0px;
   color: #494848;
   letter-spacing: 3px;
@@ -85,7 +85,7 @@
   gap: 20px;
 }
 .product-text-wrapper .ordersection p {
-  font-size: 20px;
+  font-size: 4vmin;
   font-family: monospace;
 }
 

@@ -52,21 +52,6 @@ const NavBar = () => {
             </NavLink>
           </div>
 
-          <div className='navBar-navBtn' id='Accessories'>
-            <NavLink
-              to='accessories'
-              style={({ isActive }) =>
-                isActive
-                  ? {
-                      borderBottom: "1px solid black",
-                      paddingBottom: "14px",
-                    }
-                  : undefined
-              }
-            >
-              <IconButton disableRipple>ACCESSORIES</IconButton>
-            </NavLink>
-          </div>
           <div className='navBar-search'>
             <IconButton>
               <SearchIcon />
