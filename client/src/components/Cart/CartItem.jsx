@@ -40,12 +40,12 @@ const CartItem = ({
         <div className='remove-btn'>
           <button onClick={() => removeCartItem(productId)}> X </button>
         </div>
-        <Link to={`product/${productId}`}>
+        <Link to={`/product/${productId}`}>
           <div className='product-image'>
             <img src={image} alt={name} />
           </div>
         </Link>
-        <Link to={`product/${productId}`}>
+        <Link to={`/product/${productId}`}>
           <div className='product-name'>
             <p>{name.length > 42 ? `${name.substring(0, 42)}...` : name}</p>
           </div>

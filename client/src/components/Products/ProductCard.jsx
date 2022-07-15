@@ -38,7 +38,7 @@ const ProductCard = ({
 
   return (
     <div className='product-card-container'>
-      <Link to={`product/${_id}`}>
+      <Link to={`/product/${_id}`}>
         <div className='image-container'>
           <img src={images[0].url} alt={name + " IMAGE "} />
         </div>
@@ -47,7 +47,7 @@ const ProductCard = ({
         <div className='brandName-container'>
           <span>{brand}</span>
         </div>
-        <Link to={`product/${_id}`}>
+        <Link to={`/product/${_id}`}>
           <div className='productName-container'>
             <span>{name}</span>
           </div>
