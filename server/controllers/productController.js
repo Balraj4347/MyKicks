@@ -5,7 +5,7 @@ const FilterFeatures = require("../utils/filterfeatures");
 
 //Get ALL Products with Filter
 exports.getAllProducts = asyncErrorHandler(async (req, res, next) => {
-  const productCount = await Product.countDocuments();
+  const productsCount = await Product.countDocuments();
 
   const filterFeature = new FilterFeatures(Product.find(), req.query).filter();
   let products = await filterFeature.query;
