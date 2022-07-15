@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getProductDetails, clearErrors } from "../redux-actions/productAction";
 import ImageDisplayer from "../components/ProductDetails/ImageDisplayer";
+import ProductText from "../components/ProductDetails/ProductText";
 const Product = () => {
   const dispatch = useDispatch();
   const params = useParams();
@@ -38,7 +39,9 @@ const Product = () => {
             <span>loading...</span>
           )}
         </div>
-        <div className='product-text-section'></div>
+        <div className='product-text-section'>
+          {product ? <ProductText {...product} /> : <span>loading...</span>}
+        </div>
       </div>
     </div>
   );
