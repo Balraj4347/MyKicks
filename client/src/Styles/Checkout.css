@@ -5,10 +5,10 @@
 
 .checkout-wrapper .billing-details {
   width: 66%;
-  height: 80vh;
+  min-height: 80vh;
 }
 .checkout-wrapper .billing-details .header {
-  font-size: 40px;
+  font-size: 35px;
   margin: 10px 5px;
   text-align: start;
   font-family: serif;
@@ -52,6 +52,7 @@
   height: 80vh;
   text-align: start;
   overflow-y: scroll;
+  padding: 20px;
 }
 .checkout-wrapper .order-table-checkout .yourOrder {
   font-size: 40px;

@@ -1,0 +1,45 @@
+.login-page-wrapper {
+  display: flex;
+  padding: 5px;
+  gap: 30px;
+  /* justify-content: space-around; */
+  margin-bottom: 20px;
+}
+/* login-section  */
+.login-page-wrapper .login-section {
+  text-align: left;
+  padding: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(65, 65, 65);
+  font-weight: bolder;
+}
+
+.login-page-wrapper .login-section > div {
+  padding: 10px;
+}
+.login-page-wrapper .login-section .my-account {
+  font-size: 40px;
+}
+.login-page-wrapper .login-section .login-title {
+  font-size: 30px;
+}
+
+.login-page-wrapper .login-section .form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.login-page-wrapper .login-section .form-bottom-login button {
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  margin: 20px 0px;
+  cursor: pointer;
+  padding: 10px 50px;
+}
+.login-page-wrapper .login-section .form-bottom-login button:hover {
+  background-color: rgba(0, 0, 0, 0.823);
+}

@@ -78,7 +78,7 @@ const NavBar = () => {
                 <div id='badge'>{cartItems.length}</div>
               </IconButton>
             </NavLink>
-            <NavLink to='/'>
+            <NavLink to='/login'>
               <IconButton sx={{ color: "black" }}>
                 <AccountCircleIcon />
               </IconButton>
