@@ -1,11 +1,12 @@
 import React from "react";
-import TextField from "@mui/material/TextField";
+
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, loginUser } from "../redux-actions/userActions";
 import "../Styles/Login.css";
-import Register from "../components/LoginPage/Register";
+import LoginSection from "../components/LoginPage/LoginSection";
+import RegisterSection from "../components/LoginPage/RegisterSection";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,68 +47,12 @@ const Login = () => {
           email={email}
           password={password}
         />
-        <div className='login-page-register'>
-          <Register />
-        </div>
+
+        <RegisterSection />
       </div>
       <hr />
       <InfoFooter />
     </>
-  );
-};
-
-const LoginSection = ({
-  handleLogin,
-  setEmail,
-  setPassword,
-  email,
-  password,
-}) => {
-  return (
-    <div className='login-section'>
-      <div className='my-account'>MY ACCOUNT</div>
-      <div className='login-title'>LOGIN</div>
-      <div>
-        <form onSubmit={handleLogin}>
-          <div className='form-wrapper'>
-            <div className='text-field-login'>
-              <TextField
-                fullWidth
-                id='email'
-                label='Email'
-                type='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className='text-field-login'>
-              <TextField
-                fullWidth
-                id='password'
-                label='Password'
-                type='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-          <div className='form-bottom-login'>
-            <p>
-              By continuing, you agree to MyKicks's{" "}
-              <b style={{ color: "black" }}> Terms of Use</b> and{" "}
-              <b style={{ color: "black" }}> Privacy Policy.</b>
-            </p>
-
-            <button type='submit'>Login</button>
-            <div>
-              <Link to='/password/forgot'>Forgot Password?</Link>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
   );
 };
 

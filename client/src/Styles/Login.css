@@ -5,7 +5,7 @@
   /* justify-content: space-around; */
   margin-bottom: 20px;
 }
-/* login-section  */
+/* ------------------login-section------------------  */
 .login-page-wrapper .login-section {
   text-align: left;
   padding: 10px;
@@ -32,7 +32,7 @@
   margin-bottom: 30px;
 }
 
-.login-page-wrapper .login-section .form-bottom-login button {
+.loginpage-btn button {
   font-size: 20px;
   color: white;
   background-color: black;
@@ -40,6 +40,70 @@
   cursor: pointer;
   padding: 10px 50px;
 }
-.login-page-wrapper .login-section .form-bottom-login button:hover {
+.loginpage-btn button:hover {
   background-color: rgba(0, 0, 0, 0.823);
+}
+
+/*------------------register section ------------------- */
+.register-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  padding: 10px;
+  text-align: left;
+  color: #3f3f3f;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.register-section-wrapper .register-title {
+  font-size: 30px;
+  font-weight: bolder;
+}
+.register-section-wrapper .register-tag-line {
+  font-family: emoji;
+  font-size: unset;
+  font-weight: 600;
+}
+.register-section-wrapper .register-form-wrapper {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.register-section-wrapper .register-form-wrapper .text-fields {
+  display: flex;
+  gap: 20px;
+}
+.register-section-wrapper .register-form-wrapper .register-gender-input {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+}
+.register-section-wrapper .register-form-wrapper .avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ----------- media queries ------------- */
+
+@media only screen and (max-width: 1100px) {
+  .login-page-wrapper {
+    flex-direction: column;
+  }
+  .register-section-wrapper {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .register-section-wrapper .register-form-wrapper .text-fields {
+    flex-direction: column;
+  }
+  .register-section-wrapper .register-form-wrapper .register-gender-input {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
