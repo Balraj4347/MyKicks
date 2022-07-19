@@ -9,8 +9,8 @@ const crypto = require("crypto");
 // Register User
 exports.registerUser = asyncErrorHandler(async (req, res, next) => {
   const myCloud = await cloudinary.v2.uploader.upload(
-    // req.body.avatar,
-    req.files.avatar.tempFilePath,
+    req.body.avatar,
+    // req.files.avatar.tempFilePath,
     {
       folder: "MyKicks/Avatars",
       width: 150,
