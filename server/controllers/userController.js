@@ -3,11 +3,25 @@ const User = require("../models/userModel");
 const asyncErrorHandler = require("../middlewares/asyncErrorHandler");
 const ErrorHandler = require("../utils/errorHandler");
 const sendToken = require("../utils/sendToken");
+const cloudinary = require("cloudinary");
 const crypto = require("crypto");
 
 // Register User
 exports.registerUser = asyncErrorHandler(async (req, res, next) => {
-  const { name, email, gender, password, avatar } = req.body;
+  const myCloud = await cloudinary.v2.uploader.upload(
+    // req.body.avatar,
+    req.files.avatar.tempFilePath,
+    {
+      folder: "MyKicks/Avatars",
+      width: 150,
+      crop: "scale",
+    },
+    function (error, result) {
+      console.log(result, error);
+    }
+  );
+
+  const { name, email, gender, password } = req.body;
 
   const user = await User.create({
     name,
@@ -15,7 +29,8 @@ exports.registerUser = asyncErrorHandler(async (req, res, next) => {
     gender,
     password,
     avatar: {
-      url: avatar.url,
+      public_id: myCloud.public_id,
+      url: myCloud.secure_url,
     },
   });
 
