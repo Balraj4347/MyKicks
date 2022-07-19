@@ -4,6 +4,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import Avatar from "@mui/material/Avatar";
 import { IconButton } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
@@ -11,6 +12,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const NavBar = () => {
+  const { user, loading, isAuthenticated } = useSelector((state) => state.user);
   const [showNav, setshowNav] = useState(false);
 
   const { cartItems } = useSelector((state) => state.cart);
@@ -80,7 +82,15 @@ const NavBar = () => {
             </NavLink>
             <NavLink to='/login'>
               <IconButton sx={{ color: "black" }}>
-                <AccountCircleIcon />
+                {isAuthenticated ? (
+                  <Avatar
+                    alt='Avatar Preview'
+                    src={user.avatar.url}
+                    sx={{ width: 40, height: 40 }}
+                  />
+                ) : (
+                  <AccountCircleIcon />
+                )}
               </IconButton>
             </NavLink>
           </div>
