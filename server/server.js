@@ -1,5 +1,5 @@
 const app = require("./app");
-
+const cloudinary = require("cloudinary");
 //importing for database connection
 const dbconnect = require("./config/database");
 
@@ -10,6 +10,12 @@ process.on("uncaughtException", (err) => {
 });
 
 dbconnect();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const server = app.listen(process.env.PORT, (req, res) => {
   console.log(`Service Running on http://localhost:${process.env.PORT}`);
