@@ -12,6 +12,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Slider from "@mui/material/Slider";
 import { Button } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import Loader from "../../utils/Loader";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -224,7 +225,9 @@ const Products = () => {
           )}
 
           {loading ? (
-            <span>Loading</span>
+            <span>
+              <Loader />
+            </span>
           ) : (
             <div className='products-main-container '>
               <div className='products-cards-wrapper '>

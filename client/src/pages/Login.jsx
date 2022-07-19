@@ -5,8 +5,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, loginUser } from "../redux-actions/userActions";
 import "../Styles/Login.css";
-import LoginSection from "../components/LoginPage/LoginSection";
-import RegisterSection from "../components/LoginPage/RegisterSection";
+import LoginSection from "../components/User/LoginPage/LoginSection";
+import RegisterSection from "../components/User/LoginPage/RegisterSection";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

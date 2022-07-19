@@ -1,0 +1,42 @@
+.account-page-wrapper {
+  /* display: flex; */
+  padding: 5px;
+  gap: 30px;
+  /* justify-content: space-around; */
+  margin-bottom: 20px;
+}
+/* ------------------account-section------------------  */
+.account-page-wrapper .account-section {
+  text-align: left;
+  padding: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(65, 65, 65);
+  font-weight: bolder;
+  display: flex;
+  gap: 51px;
+}
+.account-page-wrapper .account-section .my-account {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+.account-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.account-details-wrapper .heading {
+  font-family: monospace;
+  font-size: 28px;
+  border-bottom: 1px solid;
+  padding-bottom: 3px;
+}
+.account-details-wrapper .account-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.account-details-wrapper .account-detail-content .account-detail-item {
+  font-size: 18px;
+  font-family: fantasy;
+}

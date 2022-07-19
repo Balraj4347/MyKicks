@@ -1,0 +1,16 @@
+.user-sidebar-wrapper {
+  width: 200px;
+}
+.user-sidebar-wrapper .sidebar-content {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.user-sidebar-wrapper .sidebar-content .sidebar-item {
+  color: rgb(122, 122, 122);
+  font-family: fantasy;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px 5px 10px;
+  border-bottom: 1px solid;
+}

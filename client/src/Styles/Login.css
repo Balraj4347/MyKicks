@@ -71,17 +71,17 @@
   flex-direction: column;
 }
 
-.register-section-wrapper .register-form-wrapper .text-fields {
+.register-form-wrapper .text-fields {
   display: flex;
   gap: 20px;
 }
-.register-section-wrapper .register-form-wrapper .register-gender-input {
+.register-form-wrapper .register-gender-input {
   display: flex;
   align-items: center;
   gap: 20px;
   font-size: 20px;
 }
-.register-section-wrapper .register-form-wrapper .avatar-section {
+.register-form-wrapper .avatar-section {
   display: flex;
   align-items: center;
   gap: 20px;

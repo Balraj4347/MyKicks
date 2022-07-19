@@ -5,6 +5,8 @@ import {
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
+  LOGOUT_USER_SUCCESS,
+  LOGOUT_USER_FAIL,
   CLEAR_ERRORS,
 } from "../redux-constants/userConstants";
 import axios from "axios";
@@ -58,6 +60,19 @@ export const registerUser = (userData) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// Logout User
+export const logoutUser = () => async (dispatch) => {
+  try {
+    await axios.get("/api/v1/logout");
+    dispatch({ type: LOGOUT_USER_SUCCESS });
+  } catch (error) {
+    dispatch({
+      type: LOGOUT_USER_FAIL,
       payload: error.response.data.message,
     });
   }

@@ -6,7 +6,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, registerUser } from "../../redux-actions/userActions";
+import { clearErrors, registerUser } from "../../../redux-actions/userActions";
 const RegisterSection = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
