@@ -90,7 +90,7 @@ body {
   font-size: 45px;
 }
 
-.navBar-search input[type="text"] {
+.navBar-search input {
   width: 35em;
   height: 3em;
   padding: 2px 50px;
@@ -98,10 +98,10 @@ body {
   border: none;
   border-radius: 5px;
 }
-.navBar-search input[type="text"]::placeholder {
+.navBar-search input::placeholder {
   font-weight: bold;
 }
-.navBar-search input[type="text"]:focus {
+.navBar-search input:focus {
   outline: none;
 }
 #navBar-usersection a {

@@ -21,6 +21,7 @@ function App() {
             <Route exact path='/' element={<HomePage />} />
             <Route exact path='/newarrival' element={<NewArrival />} />
             <Route exact path='/product/:id' element={<Product />} />
+            <Route exact path='/products/:keyword' element={<NewArrival />} />
 
             <Route exact path='/cart' element={<Cart />} />
             <Route exact path='/checkout' element={<Checkout />} />

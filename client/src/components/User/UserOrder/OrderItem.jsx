@@ -6,6 +6,7 @@ const formatDate = (dt) => {
 
 const OrderItem = (props) => {
   const {
+    // eslint-disable-next-line
     orderId,
     name,
     image,
@@ -19,7 +20,6 @@ const OrderItem = (props) => {
 
   return (
     <div className='order-item'>
-      {/* <!-- image container --> */}
       <div className='image-container'>
         <img
           draggable='false'
@@ -29,9 +29,7 @@ const OrderItem = (props) => {
           width='200px'
         />
       </div>
-      {/* <!-- image container --> */}
 
-      {/* <!-- order desc container --> */}
       <div className='order-desc-container'>
         <div>
           <p>{name.length > 40 ? `${name.substring(0, 40)}...` : name}</p>
@@ -86,7 +84,6 @@ const OrderItem = (props) => {
           </div>
         </div>
       </div>
-      {/* <!-- order desc container --> */}
     </div>
   );
 };

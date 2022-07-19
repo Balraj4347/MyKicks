@@ -10,7 +10,9 @@ exports.getAllProducts = asyncErrorHandler(async (req, res, next) => {
   const filterFeature = new FilterFeatures(
     Product.find().sort({ createdAt: -1 }),
     req.query
-  ).filter();
+  )
+    .search()
+    .filter();
   let products = await filterFeature.query;
   let filteredProductCount = products.length;
 

@@ -10,15 +10,26 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
-  const { user, loading, isAuthenticated } = useSelector((state) => state.user);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   const [showNav, setshowNav] = useState(false);
 
   const { cartItems } = useSelector((state) => state.cart);
 
   const handleshowNav = () => {
     setshowNav(!showNav);
+  };
+
+  const [keyword, setKeyword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/products/${keyword}`);
+    }
   };
 
   return (
@@ -53,18 +64,21 @@ const NavBar = () => {
               <IconButton disableRipple>NEW ARRIVAL</IconButton>
             </NavLink>
           </div>
-
-          <div className='navBar-search'>
-            <IconButton>
-              <SearchIcon />
-            </IconButton>
-            <input
-              type='text'
-              id='searchBox'
-              name='searchBox'
-              placeholder='Search for NewArrival and Accessories'
-            />
-          </div>
+          <form onSubmit={handleSearch}>
+            <div className='navBar-search'>
+              <IconButton type='submit'>
+                <SearchIcon />
+              </IconButton>
+              <input
+                type='text'
+                id='searchBox'
+                name='searchBox'
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                placeholder='Search for Products'
+              />
+            </div>
+          </form>
         </div>
         <div
           style={{
