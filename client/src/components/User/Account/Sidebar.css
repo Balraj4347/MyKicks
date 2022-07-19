@@ -10,6 +10,7 @@
   color: rgb(122, 122, 122);
   font-family: fantasy;
   display: flex;
+  cursor: pointer;
   justify-content: space-between;
   padding: 0px 15px 5px 10px;
   border-bottom: 1px solid;

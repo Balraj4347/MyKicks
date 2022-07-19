@@ -26,7 +26,7 @@ const RegisterSection = () => {
   const { name, email, gender, password, cpassword } = user;
 
   const [avatar, setAvatar] = useState();
-  const [avatarPreview, setAvatarPreview] = useState("preview.png");
+  const [avatarPreview, setAvatarPreview] = useState();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -102,7 +102,7 @@ const RegisterSection = () => {
               />
               <TextField
                 fullWidth
-                id='email'
+                id='registration-email'
                 label='Email'
                 type='email'
                 name='email'
@@ -142,7 +142,7 @@ const RegisterSection = () => {
             <div className='text-fields'>
               <TextField
                 fullWidth
-                id='password'
+                id='registration-password'
                 label='Password'
                 type='password'
                 name='password'
@@ -152,7 +152,7 @@ const RegisterSection = () => {
               />
               <TextField
                 fullWidth
-                id='confirm-password'
+                id='registration-confirm-password'
                 label='Confirm Password'
                 type='password'
                 name='cpassword'

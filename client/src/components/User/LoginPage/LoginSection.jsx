@@ -18,7 +18,7 @@ const LoginSection = ({
             <div className='text-field-login'>
               <TextField
                 fullWidth
-                id='email'
+                id='login_email'
                 label='Email'
                 type='email'
                 value={email}
@@ -29,7 +29,7 @@ const LoginSection = ({
             <div className='text-field-login'>
               <TextField
                 fullWidth
-                id='password'
+                id='login_password'
                 label='Password'
                 type='password'
                 value={password}

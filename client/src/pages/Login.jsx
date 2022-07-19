@@ -12,8 +12,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  //  const location = useLocation();
-
   const { loading, isAuthenticated, error } = useSelector(
     (state) => state.user
   );

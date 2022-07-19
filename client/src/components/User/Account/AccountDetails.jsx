@@ -1,5 +1,4 @@
 import React from "react";
-import TextField from "@mui/material/TextField";
 import Avatar from "@mui/material/Avatar";
 
 const AccountDetails = ({ user }) => {

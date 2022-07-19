@@ -10,6 +10,7 @@ import Checkout from "./pages/Checkout";
 import Product from "./pages/Product";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
+import MyOrders from "./pages/MyOrders";
 function App() {
   return (
     <div className='App'>
@@ -29,9 +30,18 @@ function App() {
             <Route
               path='/account'
               element={
-                // <ProtectedRoute>
-                <Account />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <Account />
+                </ProtectedRoute>
+              }
+            ></Route>
+
+            <Route
+              path='/orders'
+              element={
+                <ProtectedRoute>
+                  <MyOrders />
+                </ProtectedRoute>
               }
             ></Route>
           </Routes>

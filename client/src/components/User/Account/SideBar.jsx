@@ -3,7 +3,6 @@ import "./Sidebar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../../redux-actions/userActions";
-import { color, style } from "@mui/system";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -11,7 +10,6 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const SideBar = ({ activetab }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.user);
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -39,15 +37,15 @@ const SideBar = ({ activetab }) => {
             <LocalShippingIcon />
           </div>
         </Link>
-        <Link to='/logout'>
-          <div
-            className='sidebar-item'
-            style={activetab === "logout" ? { color: "black" } : {}}
-          >
-            <p>Logout</p>
-            <LogoutIcon />
-          </div>
-        </Link>
+
+        <div
+          className='sidebar-item'
+          style={activetab === "logout" ? { color: "black" } : {}}
+          onClick={handleLogout}
+        >
+          <p>Logout</p>
+          <LogoutIcon />
+        </div>
       </div>
     </div>
   );

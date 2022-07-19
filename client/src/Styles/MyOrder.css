@@ -1,0 +1,89 @@
+.order-details-wrapper {
+  width: 70%;
+  padding: 10px;
+}
+
+/* ------- User Order ------ */
+
+.userorders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+/* userorders-sidebar */
+.userorders-container .userorders-sidebar {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+}
+.userorder-sidebar-headers {
+  font-size: 20px;
+  font-family: serif;
+  display: flex;
+  gap: 20px;
+}
+.userorders-container .userorders-sidebar .order-checkbox-wrapper div {
+  padding: 2px 5px;
+}
+
+/* order-items-section */
+.userorders-sidebar .userorder-search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+}
+.userorders-sidebar .userorder-search-bar input {
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 12px;
+}
+.userorders-sidebar .userorder-search-bar button {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 20px;
+  width: 50%;
+}
+.userorders-sidebar .userorder-search-bar button:hover {
+  background-color: rgb(35 35 35 / 85%);
+  cursor: pointer;
+}
+
+/* order-items-section */
+.userorders-container .order-items-section {
+}
+
+.order-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.order-item-list .order-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.order-item-list .order-item .order-desc-container {
+  font-family: monospace;
+  font-size: 17px;
+}
+
+@media only screen and (max-width: 700px) {
+  .order-details-wrapper {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .order-item-list .order-item {
+    flex-direction: column;
+  }
+  .userorders-sidebar .userorder-search-bar {
+    display: none;
+  }
+}

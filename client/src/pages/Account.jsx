@@ -25,7 +25,7 @@ const Account = () => {
           <SideBar activetab={"accountdetails"} />
         </div>
         <div className='account-details-wrapper'>
-          <AccountDetails user={user} />
+          {loading ? <Loader /> : <AccountDetails user={user} />}
         </div>
       </div>
     </div>
