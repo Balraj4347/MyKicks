@@ -23,8 +23,8 @@ const YourOrder = ({ cartItems }) => {
                   }}
                 />
               </div>
-              <div className='product-name' style={{ paddingLeft: "20px" }}>
-                <p style={{ width: "fit-content" }}>
+              <div className='product-name'>
+                <p style={{ width: "100%" }}>
                   {item.name.length > 25
                     ? `${item.name.substring(0, 25)}...`
                     : item.name}{" "}
@@ -32,7 +32,7 @@ const YourOrder = ({ cartItems }) => {
                 </p>
               </div>
               {
-                <div style={{ marginLeft: "auto", paddingRight: "50px" }}>
+                <div style={{ marginLeft: "auto", paddingRight: "20px" }}>
                   <p>₹ {(item.price * item.quantity).toLocaleString()}</p>
                 </div>
               }

@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload({ useTempFiles: true }));
+app.use(cors());
 
 if (process.env.NODE_ENV === "DEVELOPMENT") {
   app.use(morgan("dev"));

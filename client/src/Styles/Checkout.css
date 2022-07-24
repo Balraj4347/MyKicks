@@ -61,7 +61,11 @@
   font-family: serif;
   font-weight: bolder;
 }
-
+.yourOrder .product-name {
+  padding-left: "20px";
+  width: "50%";
+  overflow-wrap: "break-word";
+}
 /* ------Media query---------- */
 @media only screen and (max-width: 1200px) {
   .checkout-wrapper {

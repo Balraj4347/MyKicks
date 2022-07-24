@@ -1,4 +1,7 @@
 import "./App.css";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { loadUser } from "./redux-actions/userActions";
 import HomePage from "./pages/HomePage";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -11,7 +14,15 @@ import Product from "./pages/Product";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
 import MyOrders from "./pages/MyOrders";
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadUser());
+    // getStripeApiKey();
+  }, [dispatch]);
+
   return (
     <div className='App'>
       <Router>
@@ -24,7 +35,16 @@ function App() {
             <Route exact path='/products/:keyword' element={<NewArrival />} />
 
             <Route exact path='/cart' element={<Cart />} />
-            <Route exact path='/checkout' element={<Checkout />} />
+
+            <Route
+              exact
+              path='/checkout'
+              element={
+                <ProtectedRoute>
+                  <Checkout />{" "}
+                </ProtectedRoute>
+              }
+            />
 
             <Route exact path='/login' element={<Login />} />
 
