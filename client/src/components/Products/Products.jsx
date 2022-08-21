@@ -44,7 +44,7 @@ const Products = () => {
   };
   //loading, productsCount, filteredProductCount, products, error
   const { loading, products, error } = useSelector((state) => state.products);
-
+  // console.log(products);
   useEffect(() => {
     if (error) {
       dispatch(clearErrors());

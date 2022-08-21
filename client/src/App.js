@@ -1,11 +1,10 @@
 import "./App.css";
-
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadUser } from "./redux-actions/userActions";
 import HomePage from "./pages/HomePage";
 import ProtectedRoute from "./utils/ProtectedRoute";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import NewArrival from "./pages/NewArrival";
@@ -19,66 +18,73 @@ import Payment from "./pages/Payment";
 
 function App() {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     dispatch(loadUser());
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
+
   return (
     <div className='App'>
-      <Router>
-        <NavBar />
-        <main className='app_main_div'>
-          <Routes>
-            <Route exact path='/' element={<HomePage />} />
-            <Route exact path='/newarrival' element={<NewArrival />} />
-            <Route exact path='/product/:id' element={<Product />} />
-            <Route exact path='/products/:keyword' element={<NewArrival />} />
+      <NavBar />
+      <main className='app_main_div'>
+        <Routes>
+          <Route exact path='/' element={<HomePage />} />
+          <Route exact path='/newarrival' element={<NewArrival />} />
+          <Route exact path='/product/:id' element={<Product />} />
+          <Route exact path='/products/:keyword' element={<NewArrival />} />
 
-            <Route exact path='/cart' element={<Cart />} />
+          <Route exact path='/cart' element={<Cart />} />
 
-            <Route
-              exact
-              path='/checkout'
-              element={
-                <ProtectedRoute>
-                  <Checkout />{" "}
-                </ProtectedRoute>
-              }
-            />
+          <Route
+            exact
+            path='/checkout'
+            element={
+              <ProtectedRoute>
+                <Checkout />{" "}
+              </ProtectedRoute>
+            }
+          />
 
-            <Route
-              exact
-              path='/payment'
-              element={
-                <ProtectedRoute>
-                  <Payment />
-                </ProtectedRoute>
-              }
-            ></Route>
+          <Route
+            exact
+            path='/payment'
+            element={
+              <ProtectedRoute>
+                <Payment />
+              </ProtectedRoute>
+            }
+          ></Route>
 
-            <Route exact path='/login' element={<Login />} />
+          <Route exact path='/login' element={<Login />} />
 
-            <Route
-              path='/account'
-              element={
-                <ProtectedRoute>
-                  <Account />
-                </ProtectedRoute>
-              }
-            ></Route>
+          <Route
+            path='/account'
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          ></Route>
 
-            <Route
-              path='/orders'
-              element={
-                <ProtectedRoute>
-                  <MyOrders />
-                </ProtectedRoute>
-              }
-            ></Route>
-          </Routes>
-        </main>
-      </Router>
+          <Route
+            path='/orders'
+            element={
+              <ProtectedRoute>
+                <MyOrders />
+              </ProtectedRoute>
+            }
+          ></Route>
+        </Routes>
+      </main>
 
       <Footer />
     </div>

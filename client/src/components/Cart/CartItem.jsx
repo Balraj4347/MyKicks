@@ -4,6 +4,7 @@ import {
   removeItemsFromCart,
 } from "../../redux-actions/cartActions";
 import { Link } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 const CartItem = ({
   name,
@@ -15,11 +16,11 @@ const CartItem = ({
   productId,
 }) => {
   const dispatch = useDispatch();
-
+  const { enqueueSnackbar } = useSnackbar();
   const increaseQuantity = (productId, quantity, stock) => {
     const newQty = quantity + 1;
     if (quantity >= stock) {
-      alert("max quentity reached");
+      enqueueSnackbar("Maximum Quantity Reached", { variant: "info" });
       return;
     }
     dispatch(addItemsToCart(productId, newQty));

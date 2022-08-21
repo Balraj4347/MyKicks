@@ -93,7 +93,7 @@
 .hp-section-2-brands img:hover {
   box-shadow: 4px 2px 5px 1px rgb(114 114 114);
   transform: scale(1.05);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .hp-section2-image-text {
   background: transparent;

@@ -5,7 +5,8 @@ const PriceSideBar = ({ cartItems }) => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-
+  const amount = subtotal;
+  console.log(amount);
   return (
     <>
       <table className='cart-price-table'>
@@ -19,7 +20,7 @@ const PriceSideBar = ({ cartItems }) => {
           <tr>
             <th>Shipping Charges</th>
             <td>
-              <span>₹ {subtotal > 10000 ? `FREE` : `500`}</span>
+              <span> {amount > 10000 ? `FREE` : `₹ 500`}</span>
             </td>
           </tr>
           <tr>
@@ -27,9 +28,9 @@ const PriceSideBar = ({ cartItems }) => {
             <td>
               <span>
                 ₹{" "}
-                {subtotal > 10000
+                {amount > 10000
                   ? subtotal.toLocaleString()
-                  : (subtotal + 500).toLocaleString()}
+                  : (amount + 500).toLocaleString()}
               </span>
             </td>
           </tr>
