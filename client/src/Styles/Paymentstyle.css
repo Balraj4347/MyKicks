@@ -1,0 +1,56 @@
+.payment-stripe-wrapper {
+  width: 66%;
+  border-radius: 10px;
+  padding: 3vw;
+}
+.payment-stripe-wrapper h4 {
+  font-size: 20px;
+  font-family: serif;
+  text-align: start;
+  padding: 20px;
+}
+.payment-stripe-wrapper .payment-checkout-form {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  text-align: start;
+}
+.payment-stripe-wrapper .payment-checkout-form > div > div {
+  padding: 10px;
+  border: 1.5px solid gray;
+  border-radius: 10px;
+}
+.payment-stripe-wrapper .payment-checkout-form > div p {
+  width: fit-content;
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+}
+.payment-stripe-wrapper .payment-form-submit-btn {
+  width: 100%;
+  min-height: 38px;
+  cursor: pointer;
+  background-color: #010112f0;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+}
+.payment-stripe-wrapper .disabledbtn {
+  cursor: not-allowed;
+  background-color: rgba(0, 0, 0, 0.302);
+}
+.Payment-SucessFull-div img {
+  width: 20%;
+}
+.Payment-SucessFull-div p {
+  font-size: 30px;
+  font-family: cursive;
+}
+
+@media only screen and (max-width: 900px) {
+  .payment-stripe-wrapper {
+    width: 100%;
+  }
+  .payment-stripe-wrapper .payment-checkout-form {
+    gap: 15px;
+  }
+}

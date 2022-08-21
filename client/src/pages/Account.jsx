@@ -2,7 +2,7 @@ import React from "react";
 import "../Styles/Account.css";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SideBar from "../components/User/Account/SideBar";
 import Loader from "../utils/Loader";
 import AccountDetails from "../components/User/Account/AccountDetails";

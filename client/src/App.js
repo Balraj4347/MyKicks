@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadUser } from "./redux-actions/userActions";
@@ -14,13 +15,13 @@ import Product from "./pages/Product";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
 import MyOrders from "./pages/MyOrders";
+import Payment from "./pages/Payment";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadUser());
-    // getStripeApiKey();
   }, [dispatch]);
 
   return (
@@ -45,6 +46,16 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route
+              exact
+              path='/payment'
+              element={
+                <ProtectedRoute>
+                  <Payment />
+                </ProtectedRoute>
+              }
+            ></Route>
 
             <Route exact path='/login' element={<Login />} />
 

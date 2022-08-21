@@ -4,6 +4,9 @@ import {
   MY_ORDERS_FAIL,
   MY_ORDERS_REQUEST,
   MY_ORDERS_SUCCESS,
+  NEW_ORDER_REQUEST,
+  NEW_ORDER_SUCCESS,
+  NEW_ORDER_FAIL,
 } from "../redux-constants/orderConstants";
 
 export const myOrders = () => async (dispatch) => {
@@ -19,6 +22,30 @@ export const myOrders = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: MY_ORDERS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const newOrder = (order) => async (dispatch) => {
+  try {
+    dispatch({ type: NEW_ORDER_REQUEST });
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.post("/api/order/new", order, config);
+
+    dispatch({
+      type: NEW_ORDER_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: NEW_ORDER_FAIL,
       payload: error.response.data.message,
     });
   }

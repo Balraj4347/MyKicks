@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../../redux-actions/userActions";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";

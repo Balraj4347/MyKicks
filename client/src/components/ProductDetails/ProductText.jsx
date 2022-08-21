@@ -31,7 +31,7 @@ const ProductText = ({ brand, description, name, price, stock, _id }) => {
 
         <div className='productpage-Cart-opt'>
           {itemInCart ? (
-            <span className='add-button'>Already In Cart</span>
+            <span className='add-button'>Added to Cart</span>
           ) : (
             <>
               <input

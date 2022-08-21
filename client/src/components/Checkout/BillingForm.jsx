@@ -2,10 +2,11 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { saveBillingDetails } from "../../redux-actions/cartActions";
+
 import { useNavigate } from "react-router-dom";
 import states from "../../utils/states";
 
-const BillingForm = (billingDetails) => {
+const BillingForm = ({ billingDetails }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -45,7 +46,7 @@ const BillingForm = (billingDetails) => {
       <div className='header'>Billing Details</div>
       <form
         onSubmit={shippingSubmit}
-        autoComplete='off'
+        // autoComplete='off'
         className='billing-form'
       >
         <p className='input-field'>
@@ -91,6 +92,7 @@ const BillingForm = (billingDetails) => {
             onChange={(e) => {
               setCountry(e.target.value);
             }}
+            disabled
             placeholder='Country'
             required
           />

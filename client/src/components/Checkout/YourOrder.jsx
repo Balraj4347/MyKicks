@@ -33,7 +33,10 @@ const YourOrder = ({ cartItems }) => {
               </div>
               {
                 <div style={{ marginLeft: "auto", paddingRight: "20px" }}>
-                  <p>₹ {(item.price * item.quantity).toLocaleString()}</p>
+                  <p>
+                    {"₹"}
+                    {(item.price * item.quantity).toLocaleString()}
+                  </p>
                 </div>
               }
             </div>

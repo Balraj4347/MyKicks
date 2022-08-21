@@ -11,9 +11,7 @@ const RegisterSection = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { loading, isAuthenticated, error } = useSelector(
-    (state) => state.user
-  );
+  const { isAuthenticated, error } = useSelector((state) => state.user);
 
   const [user, setUser] = useState({
     name: "",
