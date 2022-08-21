@@ -7,6 +7,10 @@ const Product = require("../models/productModel");
 exports.newOrder = asyncErrorHandler(async (req, res, next) => {
   const { shippingInfo, orderItems, paymentInfo, totalPrice } = req.body;
 
+  // const orderExist = await Order.findOne({ paymentInfo });
+  // if (orderExist) {
+  //   return next(new ErrorHandler("Order Already Placed", 400));
+  // }
   const order = await Order.create({
     shippingInfo,
     orderItems,
@@ -14,6 +18,10 @@ exports.newOrder = asyncErrorHandler(async (req, res, next) => {
     totalPrice,
     paidAt: Date.now(),
     user: req.user._id,
+  });
+
+  orderItems.forEach(async (i) => {
+    await updateStock(i.productId, i.quantity);
   });
 
   res.status(201).json({
@@ -91,7 +99,7 @@ exports.updateOrder = asyncErrorHandler(async (req, res, next) => {
   if (req.body.status === "Shipped") {
     order.shippedAt = Date.now();
     order.orderItems.forEach(async (i) => {
-      await updateStock(i.product, i.quantity);
+      await updateStock(i.productId, i.quantity);
     });
   }
 
@@ -106,6 +114,12 @@ exports.updateOrder = asyncErrorHandler(async (req, res, next) => {
     success: true,
   });
 });
+
+async function updateStock(id, quantity) {
+  const product = await Product.findById(id);
+  product.stock -= quantity;
+  await product.save({ validateBeforeSave: false });
+}
 
 //deleting order
 exports.deleteOrder = asyncErrorHandler(async (req, res, next) => {

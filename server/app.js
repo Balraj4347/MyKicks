@@ -25,10 +25,12 @@ if (process.env.NODE_ENV === "DEVELOPMENT") {
 const userRoute = require("./routes/userRoute");
 const productRoute = require("./routes/productRoute");
 const orderRoute = require("./routes/orderRoute");
+const paymentRoute = require("./routes/paymentRoute");
 
 app.use("/api", productRoute);
 app.use("/api", userRoute);
 app.use("/api", orderRoute);
+app.use("/api", paymentRoute);
 
 app.get("/", (req, res) => {
   res.send("Server is Running! 🚀");
