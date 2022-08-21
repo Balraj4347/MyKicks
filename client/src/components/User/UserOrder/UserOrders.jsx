@@ -8,6 +8,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import SearchIcon from "@mui/icons-material/Search";
+import no_orderimg from "../../../assets/media/no_orderimg.png";
 
 const orderStatus = ["Processing", "Shipped", "Delivered"];
 const dt = new Date();
@@ -187,11 +188,17 @@ const UserOrders = () => {
                   <div className='no-order-found'>
                     <img
                       draggable='false'
-                      src='https://image.shutterstock.com/image-vector/order-search-no-icon-illustration-260nw-2048420858.jpg'
+                      style={{ height: "40vh" }}
+                      src={no_orderimg}
                       alt='Empty Orders'
                     />
-                    <span>Sorry, no results found</span>
-                    <p>Edit search or clear all filters</p>
+                    {/* {console.log(`${no_orderimg}`)} */}
+                    <p style={{ fontFamily: "monospace", fontSize: "x-large" }}>
+                      Sorry, no results found
+                    </p>
+                    <p style={{ fontFamily: "monospace", fontSize: "x-large" }}>
+                      Edit search or clear all filters
+                    </p>
                   </div>
                 )}
 
