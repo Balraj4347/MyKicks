@@ -4,12 +4,14 @@ import Avatar from "@mui/material/Avatar";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, registerUser } from "../../../redux-actions/userActions";
 const RegisterSection = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
   const { isAuthenticated, error } = useSelector((state) => state.user);
 
@@ -29,15 +31,21 @@ const RegisterSection = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     if (password.length < 8) {
-      alert("Password length must be atleast 8 characters");
+      enqueueSnackbar("Password length must be atleast 8 characters", {
+        variant: "error",
+      });
       return;
     }
     if (password !== cpassword) {
-      alert("Password Doesn't Match");
+      enqueueSnackbar("Password Doesn't Match", {
+        variant: "error",
+      });
       return;
     }
     if (!avatar) {
-      alert("Select Avatar");
+      enqueueSnackbar("Select Avatar", {
+        variant: "error",
+      });
       return;
     }
 
@@ -70,13 +78,13 @@ const RegisterSection = () => {
 
   useEffect(() => {
     if (error) {
-      alert(error);
+      // enqueueSnackbar(error, { variant: "error" });
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
       navigate("/");
     }
-  }, [dispatch, error, isAuthenticated, navigate]);
+  }, [dispatch, error, enqueueSnackbar, isAuthenticated, navigate]);
 
   return (
     <div className='register-section-wrapper'>

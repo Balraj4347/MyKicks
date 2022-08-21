@@ -142,10 +142,6 @@ body {
   .navBar-collection-active {
     width: 300px;
   }
-
-  #navBar_container {
-    justify-content: space-between;
-  }
 }
 @media (max-width: 1335px) {
   #searchBox {
@@ -178,5 +174,18 @@ body {
   /* #navBar_container {
     padding: 20px 25px;
   } */
+}
+@media (max-width: 350px) {
+  #navBar_container {
+    /* justify-content: space-between; */
+    flex-direction: column;
+    gap: 20px;
+  }
+  .navBar-collection {
+    margin-top: 127px;
+  }
+  .navBar-collection-active {
+    width: 90vw;
+  }
 }
 /* ----------------------------------------------------------------------------- */

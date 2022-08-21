@@ -83,7 +83,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
-  margin-left: 25px;
 }
 
 /* ------- ------   product card section ------- ------  */
@@ -102,10 +101,14 @@
 }
 .product-card-container .image-container {
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   padding: 0.2em;
-  min-width: 300px;
+  min-width: 205px;
+  max-width: 90vw;
   cursor: pointer;
+}
+.product-card-container .image-container:hover {
+  padding: 0.5em;
 }
 
 .product-card-desc {
@@ -149,7 +152,7 @@
   }
 }
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 1270px) {
   .product-card-container {
     width: 45%;
   }

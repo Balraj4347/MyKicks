@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-
+  const { enqueueSnackbar } = useSnackbar();
   const { loading, isAuthenticated, error } = useSelector(
     (state) => state.user
   );
@@ -29,12 +29,13 @@ const Login = () => {
 
   useEffect(() => {
     if (error) {
+      enqueueSnackbar(error, { variant: "error" });
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
       navigate(`/${redirect}`);
     }
-  }, [dispatch, error, isAuthenticated, redirect, navigate]);
+  }, [dispatch, error, enqueueSnackbar, isAuthenticated, redirect, navigate]);
 
   return (
     <>

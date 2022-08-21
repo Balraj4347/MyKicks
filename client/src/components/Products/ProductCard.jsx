@@ -34,6 +34,7 @@ const ProductCard = ({ _id, brand, name, images, price, ratings, stock }) => {
     backgroundPosition: `center center`,
     height: "100%",
     width: "100%",
+    transition: `all 0.5s cubic-bezier(0.11, 0.11, 1, 1.42) 0s`,
   };
   const { cartItems } = useSelector((state) => state.cart);
   const itemInCart = cartItems.some((i) => i.productId === _id);

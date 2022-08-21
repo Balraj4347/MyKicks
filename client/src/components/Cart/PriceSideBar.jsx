@@ -9,33 +9,33 @@ const PriceSideBar = ({ cartItems }) => {
   console.log(amount);
   return (
     <>
-      <table className='cart-price-table'>
-        <tbody>
-          <tr>
-            <th>Subtotal</th>
-            <td>
-              <span>₹ {subtotal.toLocaleString()}</span>
-            </td>
-          </tr>
-          <tr>
-            <th>Shipping Charges</th>
-            <td>
-              <span> {amount > 10000 ? `FREE` : `₹ 500`}</span>
-            </td>
-          </tr>
-          <tr>
-            <th>Total</th>
-            <td>
-              <span>
-                ₹{" "}
-                {amount > 10000
-                  ? subtotal.toLocaleString()
-                  : (amount + 500).toLocaleString()}
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='cart-price-section-header'>
+        <span>Description</span>
+        <span>Amount</span>
+      </div>
+      <div className='cart-price-section'>
+        <div>
+          <span>Subtotal: </span>
+          <span>
+            {"₹"}
+            {subtotal.toLocaleString()}
+          </span>
+        </div>
+        <div>
+          <span>Shipping Charges:</span>
+          <span> {amount > 10000 ? `FREE` : `₹ 500`}</span>
+        </div>
+        <hr />
+        <div>
+          <span>Total: </span>
+          <span>
+            {"₹"}
+            {amount > 10000
+              ? subtotal.toLocaleString()
+              : (amount + 500).toLocaleString()}
+          </span>
+        </div>
+      </div>
     </>
   );
 };

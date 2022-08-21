@@ -42,19 +42,28 @@ exports.loginUser = asyncErrorHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return next(new ErrorHandler("Please Enter Email And Password", 400));
+    res.status(400).json({
+      success: false,
+      message: "Please Enter Email And Password",
+    });
   }
 
   const user = await User.findOne({ email }).select("+password");
 
   if (!user) {
-    return next(new ErrorHandler("Invalid Email or Password", 401));
+    res.status(401).json({
+      success: false,
+      message: "Invalid Email or Password",
+    });
   }
 
   const isPasswordMatched = await user.comparePassword(password);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHandler("Invalid Email or Password", 401));
+    res.status(401).json({
+      success: false,
+      message: "Invalid Email or Password",
+    });
   }
 
   sendToken(user, 201, res);

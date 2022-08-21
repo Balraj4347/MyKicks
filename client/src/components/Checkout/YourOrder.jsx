@@ -11,7 +11,11 @@ const YourOrder = ({ cartItems }) => {
             <div
               key={item.productId}
               className='product-cartCard-wrapper'
-              style={{ justifyContent: "flex-start" }}
+              style={{
+                justifyContent: "flex-start",
+                flexDirection: "row",
+                gap: "5px",
+              }}
             >
               <div className='product-image'>
                 <img
