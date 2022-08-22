@@ -56,7 +56,7 @@ const PaymentCheckoutForm = ({ setPaymentCompleted }) => {
         paymentData,
         config
       );
-      console.log(data);
+
       if (!stripe || !elements) return;
 
       const result = await stripe.confirmCardPayment(data.client_secret, {

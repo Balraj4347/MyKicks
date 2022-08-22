@@ -13,9 +13,10 @@ import Slider from "@mui/material/Slider";
 import { Button } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import Loader from "../../utils/Loader";
-
+import { useSnackbar } from "notistack";
 const Products = () => {
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
   const params = useParams();
   const keyword = params.keyword;
 
@@ -33,10 +34,12 @@ const Products = () => {
     setRatings(0);
 
     dispatch(getProducts());
+    enqueueSnackbar("Cleared All Filters", { variant: "success" });
   };
 
   const applyFilter = () => {
     dispatch(getProducts(keyword, gender, price, ratings, brand, category));
+    enqueueSnackbar("Filters Applied", { variant: "success" });
   };
 
   const priceHandler = (e, newPrice) => {
@@ -47,10 +50,11 @@ const Products = () => {
   // console.log(products);
   useEffect(() => {
     if (error) {
+      enqueueSnackbar(error, { variant: "error" });
       dispatch(clearErrors());
     }
     dispatch(getProducts(keyword));
-  }, [dispatch, keyword, error]);
+  }, [dispatch, enqueueSnackbar, keyword, error]);
 
   return (
     <>

@@ -6,7 +6,7 @@ const PriceSideBar = ({ cartItems }) => {
     0
   );
   const amount = subtotal;
-  console.log(amount);
+
   return (
     <>
       <div className='cart-price-section-header'>

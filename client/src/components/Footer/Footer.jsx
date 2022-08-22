@@ -8,11 +8,14 @@ import "./Footer.css";
 import { IconButton } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { useSnackbar } from "notistack";
+import { useState } from "react";
 
 const Footer = () => {
+  const [btnDisabled, setBtnDisabled] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
   const handleForm = (e) => {
     e.preventDefault();
+    setBtnDisabled(true);
     emailjs
       .sendForm(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
@@ -24,11 +27,29 @@ const Footer = () => {
         (result) => {
           enqueueSnackbar(
             "Thank you for your time. We'll look into your message",
-            { variant: "success" }
+            {
+              variant: "success",
+              anchorOrigin: {
+                vertical: "bottom",
+                horizontal: "right",
+              },
+              autoHideDuration: 5000,
+            }
           );
+          document.getElementById("footer-contact-form").reset();
+          setBtnDisabled(false);
         },
         (error) => {
-          enqueueSnackbar(error, { variant: "error" });
+          enqueueSnackbar(error, {
+            variant: "error",
+            anchorOrigin: {
+              vertical: "bottom",
+              horizontal: "right",
+            },
+            autoHideDuration: 5000,
+          });
+          document.getElementById("footer-contact-form").reset();
+          setBtnDisabled(false);
         }
       );
   };
@@ -58,7 +79,13 @@ const Footer = () => {
             <div className='footer-row-1-needhelp-content'>
               <ul>
                 <li>My Account</li>
-                <li>Size Chart</li>
+                <a
+                  href='https://static.nike.com/a/images/f_auto,cs_srgb/w_1920,c_limit/f4f9d79e-6e47-4c0a-894c-463e9ad3e0ff/how-to-accurately-measure-your-feet-to-find-your-shoe-size.png'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <li>Size Chart</li>
+                </a>
                 <li>Shipping</li>
               </ul>
             </div>
@@ -68,7 +95,10 @@ const Footer = () => {
             <div className='footer-row-1-needhelp-content'>
               <ul>
                 <li>+91 9999999999</li>
-                <li>Delhi , India</li>
+                <li>
+                  <LocationOnSharpIcon sx={{ fontSize: "small" }} /> Delhi ,
+                  India
+                </li>
                 <li>
                   <IconButton id='footer-icon'>
                     <FacebookIcon />
@@ -78,12 +108,24 @@ const Footer = () => {
                   </IconButton>
                 </li>
                 <li>
-                  <IconButton id='footer-icon'>
-                    <TwitterIcon />
-                  </IconButton>
-                  <IconButton id='footer-icon'>
-                    <LinkedInIcon />
-                  </IconButton>
+                  <a
+                    href='https://twitter.com/balrajgahlot3'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <IconButton id='footer-icon'>
+                      <TwitterIcon />
+                    </IconButton>
+                  </a>
+                  <a
+                    href='https://www.linkedin.com/in/balrajgahlot/'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <IconButton id='footer-icon'>
+                      <LinkedInIcon />
+                    </IconButton>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -92,7 +134,7 @@ const Footer = () => {
           <div className='footer-row-1-section'>
             <span id='footerHeading2'>Message Us </span>
             <div className='footer-row-1-messageus-content'>
-              <form onSubmit={handleForm}>
+              <form onSubmit={handleForm} id='footer-contact-form'>
                 <div className='footer-form'>
                   <input
                     required
@@ -122,8 +164,9 @@ const Footer = () => {
                   <button
                     className='footer-form-fields footer-form-button'
                     type='submit'
+                    disabled={btnDisabled}
                   >
-                    Submit
+                    {btnDisabled ? "Sending.." : "Submit"}
                   </button>
                 </div>
               </form>

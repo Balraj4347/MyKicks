@@ -11,7 +11,7 @@ import {
   addItemsToCart,
   removeItemsFromCart,
 } from "../../redux-actions/cartActions";
-
+import { useSnackbar } from "notistack";
 const ProductCard = ({ _id, brand, name, images, price, ratings, stock }) => {
   const [isHover, setIsHover] = useState(false);
   const handleMouseEnter = () => {
@@ -22,7 +22,7 @@ const ProductCard = ({ _id, brand, name, images, price, ratings, stock }) => {
     setIsHover(false);
   };
   const dispatch = useDispatch();
-
+  const { enqueueSnackbar } = useSnackbar();
   const thisCardimg = {
     backgroundImage: isHover
       ? typeof images[1] !== "undefined"
@@ -40,12 +40,24 @@ const ProductCard = ({ _id, brand, name, images, price, ratings, stock }) => {
   const itemInCart = cartItems.some((i) => i.productId === _id);
   const addToCartHandler = () => {
     dispatch(addItemsToCart(_id));
-    //  enqueueSnackbar("Product Added To Cart", { variant: "success" });
+    enqueueSnackbar("Product Added To Cart", {
+      variant: "success",
+      anchorOrigin: {
+        vertical: "bottom",
+        horizontal: "right",
+      },
+    });
   };
 
-  const removeaFromCartHandler = () => {
+  const removeFromCartHandler = () => {
     dispatch(removeItemsFromCart(_id));
-    //  enqueueSnackbar("Product Added To Cart", { variant: "success" });
+    enqueueSnackbar("Product Removed From Cart", {
+      variant: "info",
+      anchorOrigin: {
+        vertical: "bottom",
+        horizontal: "right",
+      },
+    });
   };
 
   return (
@@ -81,7 +93,7 @@ const ProductCard = ({ _id, brand, name, images, price, ratings, stock }) => {
       <span className='add-cart-icon'>
         {stock !== 0 ? (
           itemInCart ? (
-            <IconButton onClick={removeaFromCartHandler}>
+            <IconButton onClick={removeFromCartHandler}>
               <DoneOutlineIcon />
             </IconButton>
           ) : (
