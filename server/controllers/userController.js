@@ -1,5 +1,4 @@
 const User = require("../models/userModel");
-// import { useParams } from "react-router-dom";
 const asyncErrorHandler = require("../middlewares/asyncErrorHandler");
 const ErrorHandler = require("../utils/errorHandler");
 const sendToken = require("../utils/sendToken");
@@ -10,7 +9,7 @@ const crypto = require("crypto");
 exports.registerUser = asyncErrorHandler(async (req, res, next) => {
   const myCloud = await cloudinary.v2.uploader.upload(
     req.body.avatar,
-    // req.files.avatar.tempFilePath,
+
     {
       folder: "MyKicks/Avatars",
       width: 150,

@@ -16,8 +16,6 @@ exports.getAllProducts = asyncErrorHandler(async (req, res, next) => {
   let products = await filterFeature.query;
   let filteredProductCount = products.length;
 
-  // const products = await Product.find();
-
   res.status(200).json({
     success: true,
     productsCount,
