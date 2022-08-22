@@ -10,8 +10,10 @@
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "server": "nodemon server/server.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
+    "start": "node server/server.js"
+  },
+  "engines": {
+    "node": "17.4.0"
   },
   "author": "Balraj Gahlot",
   "license": "ISC",
