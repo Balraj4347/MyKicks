@@ -87,6 +87,7 @@
 .hp-section-2-brands img {
   border-radius: 50px;
   margin: 2vmin;
+  width: 90%;
   transform: 1s;
   height: 310px;
 }

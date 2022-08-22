@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import nikejordans from "../../assets/media/nikeJordans.jpeg";
 import adidas from "../../assets/media/Adidas.jpeg";
 import reebok from "../../assets/media/reebok.jpeg";
@@ -14,7 +15,9 @@ const Section2 = () => {
         <ul>
           <li>
             <div className='hp-section-2-box'>
-              <img draggable={false} src={nikejordans} alt='Nike' />
+              <Link to='/newarrival'>
+                <img draggable={false} src={nikejordans} alt='Nike' />
+              </Link>
               <span className='hp-section2-image-text'>
                 <h3>Nike Jordans</h3>
                 <p>Jordan's popularity</p>
@@ -24,7 +27,9 @@ const Section2 = () => {
           <li>
             {" "}
             <div className='hp-section-2-box'>
-              <img draggable={false} src={adidas} alt='Adidas' />
+              <Link to='/newarrival'>
+                <img draggable={false} src={adidas} alt='Adidas' />
+              </Link>
               <span className='hp-section2-image-text'>
                 <h3> Adidas</h3>
                 <p>Jordan's popularity</p>
@@ -34,7 +39,9 @@ const Section2 = () => {
           <li>
             {" "}
             <div className='hp-section-2-box'>
-              <img draggable={false} src={reebok} alt='Reebok' />
+              <Link to='/newarrival'>
+                <img draggable={false} src={reebok} alt='Reebok' />
+              </Link>
               <span className='hp-section2-image-text'>
                 <h3>Reebok</h3>
                 <p>Jordan's popularity</p>
@@ -44,7 +51,9 @@ const Section2 = () => {
           <li>
             {" "}
             <div className='hp-section-2-box'>
-              <img draggable={false} src={vans} alt='vans' />
+              <Link to='/newarrival'>
+                <img draggable={false} src={vans} alt='vans' />
+              </Link>
               <span className='hp-section2-image-text'>
                 <h3>Vans</h3>
                 <p>Jordan's popularity</p>
