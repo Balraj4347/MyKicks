@@ -194,10 +194,10 @@ const UserOrders = () => {
                     />
                     {/* {console.log(`${no_orderimg}`)} */}
                     <p style={{ fontFamily: "monospace", fontSize: "x-large" }}>
-                      Sorry, no results found
+                      You haven't Ordered Yet !!
                     </p>
                     <p style={{ fontFamily: "monospace", fontSize: "x-large" }}>
-                      Edit search or clear all filters
+                      Order fast !! (Edit search or clear all filters)
                     </p>
                   </div>
                 )}

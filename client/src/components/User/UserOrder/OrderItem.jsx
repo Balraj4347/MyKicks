@@ -79,7 +79,7 @@ const OrderItem = (props) => {
             ) : orderStatus === "Shipped" ? (
               <p>Your item has been {orderStatus}</p>
             ) : (
-              <p>Seller has processed your order</p>
+              <p>Seller has Received your order</p>
             )}
           </div>
         </div>

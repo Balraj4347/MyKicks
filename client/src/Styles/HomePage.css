@@ -135,16 +135,20 @@
 /* --------------------------- HomePage   Section-3 --------------------------- */
 .homepage-section-3 {
   min-height: 70vmin;
-  display: grid;
-  grid-template-rows: 2fr 1fr;
+  /* display: grid; */
+  /* grid-template-rows: 2fr 1fr; */
   /* margin: 2vmin; */
   padding: 2vmin;
-  background: url("https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png");
+
+  background: url("../assets/media/sneakerbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .hp-section3-griditem1 {
-  background-color: #0a0c0aa6;
   border-radius: 20px;
-  color: white;
+  color: #d30e0e;
+  background-color: rgba(0, 0, 0, 0.216);
   overflow: hidden;
 }
 .hp-section3-griditem1 h2 {
