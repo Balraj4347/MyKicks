@@ -31,3 +31,12 @@ exports.processPayment = asyncErrorHandler(async (req, res, next) => {
 exports.sendStripeApiKey = asyncErrorHandler(async (req, res, next) => {
   res.status(200).json({ stripeApiKey: process.env.STRIPE_API_KEY });
 });
+
+//ad-hoc implementation emailjs keys for footer form
+exports.sendEmailJsKeys = asyncErrorHandler(async (req, res, next) => {
+  res.status(200).json({
+    SERVICE_ID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+    TEMPLATE_ID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+    PUBLIC_KEY: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+  });
+});

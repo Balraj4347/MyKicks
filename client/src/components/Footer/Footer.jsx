@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import axios from "axios";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -12,47 +14,52 @@ import { useState } from "react";
 
 const Footer = () => {
   const [btnDisabled, setBtnDisabled] = useState(false);
+  const [SERVICE_ID, setSERVICE_ID] = useState("");
+  const [TEMPLATE_ID, setEMPLATE_ID] = useState("");
+  const [PUBLIC_KEY, setPUBLIC_KEY] = useState("");
   const { enqueueSnackbar } = useSnackbar();
   const handleForm = (e) => {
     e.preventDefault();
     setBtnDisabled(true);
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        e.target,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          enqueueSnackbar(
-            "Thank you for your time. We'll look into your message",
-            {
-              variant: "success",
-              anchorOrigin: {
-                vertical: "bottom",
-                horizontal: "right",
-              },
-              autoHideDuration: 5000,
-            }
-          );
-          document.getElementById("footer-contact-form").reset();
-          setBtnDisabled(false);
-        },
-        (error) => {
-          enqueueSnackbar(error, {
-            variant: "error",
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY).then(
+      (result) => {
+        enqueueSnackbar(
+          "Thank you for your time. We'll look into your message",
+          {
+            variant: "success",
             anchorOrigin: {
               vertical: "bottom",
               horizontal: "right",
             },
             autoHideDuration: 5000,
-          });
-          document.getElementById("footer-contact-form").reset();
-          setBtnDisabled(false);
-        }
-      );
+          }
+        );
+        document.getElementById("footer-contact-form").reset();
+        setBtnDisabled(false);
+      },
+      (error) => {
+        enqueueSnackbar(error, {
+          variant: "error",
+          anchorOrigin: {
+            vertical: "bottom",
+            horizontal: "right",
+          },
+          autoHideDuration: 5000,
+        });
+        document.getElementById("footer-contact-form").reset();
+        setBtnDisabled(false);
+      }
+    );
   };
+  async function getEmailJSkeys() {
+    const { data } = await axios.get("/api/emailjskeys");
+    setSERVICE_ID(data.SERVICE_ID);
+    setEMPLATE_ID(data.TEMPLATE_ID);
+    setPUBLIC_KEY(data.PUBLIC_KEY);
+  }
+  useEffect(() => {
+    getEmailJSkeys();
+  }, []);
   return (
     <footer id='footer-Footer'>
       <div className='footer-container'>
