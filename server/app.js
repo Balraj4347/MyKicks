@@ -12,8 +12,6 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "server/config/config.env" });
 }
 
-app.use(express.static(path.join(__dirname, "../client/build")));
-
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,7 +35,7 @@ app.use("/api", paymentRoute);
 app.get("/", (req, res) => {
   res.send("Server is Running! 🚀");
 });
-
+app.use(express.static(path.join(__dirname, "../client/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
