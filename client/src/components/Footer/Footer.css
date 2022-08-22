@@ -73,6 +73,12 @@
   font-size: 1.06rem;
   font-weight: 300;
 }
+.footer-form-button {
+  cursor: pointer;
+}
+.footer-form-button:focus {
+  font-weight: 500;
+}
 
 .footer-row-1-section li {
   font-size: 15px;

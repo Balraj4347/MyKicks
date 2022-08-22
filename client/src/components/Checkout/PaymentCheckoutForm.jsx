@@ -75,7 +75,6 @@ const PaymentCheckoutForm = ({ setPaymentCompleted }) => {
           },
         },
       });
-      //   console.log(result);
       if (result.error) {
         paymentBtn.current.disabled = false;
         setPayDisable(false);

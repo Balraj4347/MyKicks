@@ -1,6 +1,6 @@
 import React from "react";
 import emptycartimg from "../../assets/media/emptycart.png";
-import { emptyCart } from "../../redux-actions/cartActions";
+// import { emptyCart } from "../../redux-actions/cartActions";
 const EmptyCart = () => {
   return (
     <div>
