@@ -11,6 +11,6 @@ const router = express.Router();
 router.route("/payment/process").post(processPayment);
 router.route("/stripeapikey").get(isAuthenticatedUser, sendStripeApiKey);
 //ad-hoc implementation emailjs keys for footer form
-router.route("/emailjskeys").get(isAuthenticatedUser, sendEmailJsKeys);
+router.route("/emailjskeys").get(sendEmailJsKeys);
 
 module.exports = router;

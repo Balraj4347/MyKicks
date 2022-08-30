@@ -59,7 +59,7 @@ const BillingForm = ({ billingDetails }) => {
             id='address'
             value={address}
             onChange={(e) => {
-              setAddress(e.target.value);
+              setAddress(e.target.value || "");
             }}
             placeholder='Address'
             required
@@ -75,7 +75,7 @@ const BillingForm = ({ billingDetails }) => {
             id='city'
             value={city}
             onChange={(e) => {
-              setCity(e.target.value);
+              setCity(e.target.value || "");
             }}
             placeholder='City'
             required
@@ -91,7 +91,7 @@ const BillingForm = ({ billingDetails }) => {
             id='country'
             value={country}
             onChange={(e) => {
-              setCountry(e.target.value);
+              setCountry(e.target.value || "");
             }}
             disabled
             placeholder='Country'
@@ -107,7 +107,7 @@ const BillingForm = ({ billingDetails }) => {
             id='state'
             value={state}
             onChange={(e) => {
-              setState(e.target.value);
+              setState(e.target.value || "");
             }}
             placeholder='State'
             required
@@ -129,7 +129,7 @@ const BillingForm = ({ billingDetails }) => {
             id='pincode'
             value={pincode}
             onChange={(e) => {
-              setPincode(e.target.value);
+              setPincode(e.target.value || "");
             }}
             placeholder='Pincode'
             required
@@ -145,7 +145,7 @@ const BillingForm = ({ billingDetails }) => {
             id='phoneNo'
             value={phoneNo}
             onChange={(e) => {
-              setPhoneNo(e.target.value);
+              setPhoneNo(e.target.value || "");
             }}
             placeholder='Phone Number'
             required
