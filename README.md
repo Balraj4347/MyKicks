@@ -43,14 +43,17 @@ The Website still have improvements and updates lined up...So watch out .
 **Backend**
 
 > npm install
+
 > setup all the enviorment variables
 > MONGO_URI , NODE_ENV, CLIENT_URL , JWT_SECRET, JWT_EXPIRE, COOKIE_EXPIRE, CLOUDINARY_NAME
 > CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, STRIPE_API_KEY, STRIPE_SECRET_KEY
+
 > npm run dev
 
 **Frontend**
 
 > cd client && npm install
+
 > npm start
 
 ## Contact Me
