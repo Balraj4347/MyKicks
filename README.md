@@ -4,9 +4,8 @@
 
 ## About
 
-An end-to-end sneaker e-commerece website made using MERN stack. The website provides the user with a flawless user experience and a amazing yet minimalist user interface. User can browse through a lot of sneakers, add to cart the ones they like. They can also search for a product they know or take help of filters to narrow down the options.
-The liked items can be placed inside the cart and quantity can be decided there.
-After providing the necessary billing details and successfull payment. Users can track their orders in the my orders section.
+An end-to-end sneaker E-commerce website made using MERN stack. The website provides the user with a flawless user experience and an amazing yet minimalist user interface. User can browse through a lot of sneakers, add to cart the ones they like.
+They can also search for a product they know or take help of filters to narrow down the options. The liked items can be placed inside the cart and quantity can be decided there. After providing the necessary billing details and successful payment. Users can track their orders in the my orders section.
 The Website still have improvements and updates lined up...So watch out .
 
 [heroku link](https://mykicks.herokuapp.com/) 🚀
