@@ -26,30 +26,31 @@ const ProductText = ({ brand, description, name, price, stock, _id }) => {
         {stock === 0 ? (
           <p style={{ color: "red" }}>╳ Out Of Stock</p>
         ) : (
-          <p style={{ color: "green" }}>✔️ In Stock</p>
+          <>
+            <p style={{ color: "green" }}>✔️ In Stock</p>
+            <div className='productpage-Cart-opt'>
+              {itemInCart ? (
+                <span className='add-button'>Added to Cart</span>
+              ) : (
+                <>
+                  <input
+                    type='number'
+                    min='1'
+                    max={stock}
+                    value={quantity}
+                    onChange={(e) => {
+                      setQuantity(e.target.value);
+                    }}
+                  />
+
+                  <button className='add-button' onClick={addToCartHandler}>
+                    ADD TO CART
+                  </button>
+                </>
+              )}
+            </div>
+          </>
         )}
-
-        <div className='productpage-Cart-opt'>
-          {itemInCart ? (
-            <span className='add-button'>Added to Cart</span>
-          ) : (
-            <>
-              <input
-                type='number'
-                min='1'
-                max={stock}
-                value={quantity}
-                onChange={(e) => {
-                  setQuantity(e.target.value);
-                }}
-              />
-
-              <button className='add-button' onClick={addToCartHandler}>
-                ADD TO CART
-              </button>
-            </>
-          )}
-        </div>
       </div>
     </div>
   );
