@@ -1,5 +1,9 @@
 const states = [
   {
+    code: "NN",
+    name: "Select State",
+  },
+  {
     code: "AN",
     name: "Andaman and Nicobar Islands",
   },

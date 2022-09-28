@@ -19,13 +19,17 @@ const BillingForm = ({ billingDetails }) => {
 
   const shippingSubmit = (e) => {
     e.preventDefault();
-
+    console.log(state);
     if (
       phoneNo.length < 10 ||
       phoneNo.length > 10 ||
       !phoneNo.match(/^\d{10}$/)
     ) {
-      alert("invalid phone number");
+      enqueueSnackbar("Invalid Phone No.", { variant: "error" });
+      return;
+    }
+    if (state === undefined) {
+      enqueueSnackbar("Select a State", { variant: "error" });
       return;
     }
     dispatch(
